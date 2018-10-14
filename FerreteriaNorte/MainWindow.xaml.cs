@@ -70,9 +70,7 @@ namespace FerreteriaNorte
             try
             {
                 mySql.Open();
-                //System.Windows.MessageBox.Show("Conexión creada");
                 MySql.Data.MySqlClient.MySqlCommand mySqlCommand = new MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM `cliente` WHERE 1", mySql);
-                //MessageBox.Show(Convert.ToString(mySqlCommand.ExecuteScalar()));
                 MySql.Data.MySqlClient.MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
 
                 string clients = "";
