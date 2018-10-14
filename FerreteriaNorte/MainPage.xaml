@@ -9,7 +9,7 @@
       Title="MainPage">
 
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Source="images/frente.jpg" MouseUp="image_MouseUp"/>
+        <Image x:Name="image" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Source="Resources/images/frente.jpg" MouseUp="image_MouseUp"/>
 
     </Grid>
 </Page>

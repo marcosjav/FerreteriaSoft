@@ -1,4 +1,6 @@
-﻿using FerreteriaNorte.Sales;
+﻿using FerreteriaNorte.Classes;
+using FerreteriaNorte.Connection;
+using FerreteriaNorte.Sales;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +39,7 @@ namespace FerreteriaNorte
         {
             pages = new Dictionary<PageType, Page>();
             pages.Add(PageType.Main, new MainPage(this));
-            pages.Add(PageType.Sales, new Page1(this));
+            //pages.Add(PageType.Sales, new Page1(this));
             pages.Add(PageType.Sale, new Sale());
         }
 
@@ -64,36 +66,25 @@ namespace FerreteriaNorte
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            MySql.Data.MySqlClient.MySqlConnection mySql = new MySql.Data.MySqlClient.MySqlConnection();
-            mySql.ConnectionString = "server=localhost; uid=root; pwd=12345678; database=norte;SslMode=none";
-
             try
             {
-                mySql.Open();
-                MySql.Data.MySqlClient.MySqlCommand mySqlCommand = new MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM `cliente` WHERE 1", mySql);
-                MySql.Data.MySqlClient.MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DBConnection.ConnectionString = "server=localhost; uid=root; pwd=12345678; database=norte;SslMode=none";
+                List<Client> clientList = ClientConnection.GetClients();
+                string example = "";
 
-                string clients = "";
-                while (mySqlDataReader.Read())
+                foreach (Client client in clientList)
                 {
-                    clients += mySqlDataReader["nombre"];
-                    clients += '\n';
+                    example += client.Nombre;
+                    example += '\n';
                 }
 
-                MessageBox.Show(clients);
-
-                mySql.Close();
+                MessageBox.Show(example);
             }
             catch (Exception err)
             {
-                mySql.Close();
-                MessageBox.Show("Error de conexión: " + err.Message);
+                MessageBox.Show(err.Message);
             }
-            finally
-            {
-                mySql.Dispose();
-            }
-
+            
         }
     }
 }
