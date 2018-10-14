@@ -70,13 +70,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Client.cs" />
+    <Compile Include="DBConnection\ClientConnection.cs" />
+    <Compile Include="DBConnection\DBConnection.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Products\ProductList.xaml.cs">
+    <Compile Include="Resources\Utils\Functions.cs" />
+    <Compile Include="Views\Products\ProductList.xaml.cs">
       <DependentUpon>ProductList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sales\Sale.xaml.cs">
+    <Compile Include="Views\Sales\Sale.xaml.cs">
       <DependentUpon>Sale.xaml</DependentUpon>
     </Compile>
     <Compile Include="StartImageButton.xaml.cs">
@@ -109,11 +113,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Products\ProductList.xaml">
+    <Page Include="Views\Products\ProductList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sales\Sale.xaml">
+    <Page Include="Views\Sales\Sale.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,7 +155,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\frente.jpg" />
+    <Resource Include="Resources\images\frente.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
