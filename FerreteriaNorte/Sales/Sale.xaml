@@ -1,0 +1,70 @@
+﻿<Page x:Class="FerreteriaNorte.Sales.Sale"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FerreteriaNorte.Sales"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="512"
+      Title="Sale">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="groupBox" Header="DATOS DE FACTURACIÓN" HorizontalAlignment="Stretch" Height="146.001" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="11">
+            <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                <ComboBox x:Name="comboInvoiceType" HorizontalAlignment="Left" Margin="93.999,10,0,0" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="label" Content="Tipo:" HorizontalAlignment="Left" Margin="52.999,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label1" Content="Terminal:" HorizontalAlignment="Left" Margin="32.999,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label2" Content="Nombre/RS:" HorizontalAlignment="Left" Margin="16.999,70,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label3" Content="CUIT/CUIL:" HorizontalAlignment="Left" Margin="23.999,100,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label_Copy" Content="N°:" HorizontalAlignment="Left" Margin="299.999,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label1_Copy" Content="Fecha:" HorizontalAlignment="Left" Margin="283.999,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label2_Copy" Content="Dirección:" HorizontalAlignment="Left" Margin="263.999,70,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label3_Copy" Content="Provincia:" HorizontalAlignment="Left" Margin="264.999,100,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="labelNumber" Content="001-000001" HorizontalAlignment="Left" Margin="326.999,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="labelDate" Content="01/01/18" HorizontalAlignment="Left" Margin="326.999,40,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="labelAddress" Content="Av. 9 de Julio 1562" HorizontalAlignment="Left" Margin="326.999,70,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="labelProvince" Content="Chaco" HorizontalAlignment="Left" Margin="326.999,100,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="labelTerminal" Content="1 - Av. San Martín" HorizontalAlignment="Left" Margin="93.999,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,-0.133"/>
+                <ComboBox x:Name="comboName" HorizontalAlignment="Left" Margin="93.999,70,0,0" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="labelCUIT" Content="27-32558412-0" HorizontalAlignment="Left" Margin="93.999,100,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="DESCUENTOS" HorizontalAlignment="Stretch" Height="96.667" Margin="0,151.001,0,0" VerticalAlignment="Top" FontSize="11">
+            <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                <Label x:Name="label4" Content="Ventas:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label4_Copy" Content="Extra:" HorizontalAlignment="Left" Margin="18,40,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.855,0.467"/>
+                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="62,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="button" Content="FORMA DE PAGO" HorizontalAlignment="Left" Margin="390,46,0,0" VerticalAlignment="Top" Width="100"/>
+            </Grid>
+        </GroupBox>
+        <ListView x:Name="listView" HorizontalAlignment="Stretch" Margin="0,2.668,0,79.166" VerticalAlignment="Stretch" Width="512" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <GroupBox x:Name="groupBox2" Header="SUB TOTAL" HorizontalAlignment="Left" Height="53.332" Margin="0,0,0,25" Width="113" FontSize="10" VerticalAlignment="Bottom" Grid.Row="1">
+            <Label x:Name="label5_Copy" Content="$999.999,99" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        </GroupBox>
+        <GroupBox x:Name="groupBox2_Copy" Header="IVA" HorizontalAlignment="Left" Height="53.332" Margin="118,0,0,25" Width="76" FontSize="10" VerticalAlignment="Bottom" Grid.Row="1">
+            <Label x:Name="label6" Content="% 10,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        </GroupBox>
+        <GroupBox x:Name="groupBox2_Copy1" Header="TOTAL" HorizontalAlignment="Left" Height="53.332" Margin="199,0,0,25" Width="113" FontSize="10" VerticalAlignment="Bottom" Grid.Row="1">
+            <Label x:Name="label5" Content="$999.999,99" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        </GroupBox>
+        <GroupBox x:Name="groupBox2_Copy2" Header="DESCUENTO" HorizontalAlignment="Left" Height="53.332" Margin="317,0,0,25" Width="76" FontSize="10" VerticalAlignment="Bottom" Grid.Row="1">
+            <Label x:Name="label7" Content="% 10,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        </GroupBox>
+        <GroupBox x:Name="groupBox2_Copy3" Header="TOTAL" HorizontalAlignment="Left" Height="53.332" Margin="398,0,0,25" Width="113" FontSize="10" VerticalAlignment="Bottom" Grid.Row="1">
+            <Label x:Name="label8" Content="$999.999,99" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        </GroupBox>
+        <Button x:Name="button1" Content="ANULAR (F5)" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" Width="103" Grid.Row="1"/>
+        <Button x:Name="button1_Copy" Content="CONFIRMAR (F6)" HorizontalAlignment="Left" Margin="398,0,0,0" VerticalAlignment="Bottom" Width="104" Grid.Row="1"/>
+
+    </Grid>
+</Page>

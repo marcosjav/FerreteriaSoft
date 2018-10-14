@@ -1,0 +1,16 @@
+﻿<Window x:Class="FerreteriaNorte.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FerreteriaNorte"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="567.469" Loaded="Window_Loaded">
+    <Grid>
+        <Frame x:Name="mainFrame" HorizontalAlignment="Stretch" Margin="10,50,10,10" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+        <Button x:Name="button" Content="Acerca" HorizontalAlignment="Left" Margin="53.427,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button1" Content="Cambiar" HorizontalAlignment="Left" Margin="133.427,10,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Navegar" HorizontalAlignment="Left" Margin="213.427,10,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
+        <Button x:Name="button3" Content="PruebaMySql" HorizontalAlignment="Left" Margin="293.427,10,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
+    </Grid>
+</Window>
