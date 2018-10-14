@@ -70,9 +70,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Article.cs" />
+    <Compile Include="Classes\Authorized.cs" />
     <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\Provider.cs" />
+    <Compile Include="Connection\ArticleConnection.cs" />
+    <Compile Include="Connection\AuthorizedConnection.cs" />
     <Compile Include="Connection\ClientConnection.cs" />
     <Compile Include="Connection\DBConnection.cs" />
+    <Compile Include="Connection\ProviderConnection.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

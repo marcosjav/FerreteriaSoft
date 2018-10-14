@@ -16,7 +16,6 @@ namespace FerreteriaNorte.Connection
         public static List<Client> GetClients()
         {
             List<Client> clientList = new List<Client>();
-
             
             try
             {
@@ -50,7 +49,7 @@ namespace FerreteriaNorte.Connection
                 // close the connection to DB
                 DBConnection.CloseConnection();
 
-            } catch (Exception err)
+            } catch (Exception)
             {
                 DBConnection.CloseConnection();
                 throw;
@@ -59,6 +58,41 @@ namespace FerreteriaNorte.Connection
             return clientList;
         }
 
+        public static bool AddClient(Client client)
+        {
+            try
+            {
+                // start the connection to db
+                MySqlCommand sqlCommand = DBConnection.GetConnection().CreateCommand();
 
+                sqlCommand.CommandText = "INSERT INTO `cliente`(`Nombre`, `Documento`, `Direccion`, `Provincia`, `Pais`, `CodigoPostal`, `Condiciones`, `Celular`, `Telefono`, `Email`, `FechaInicio`, `Limite`, `Lista`, `Foto`) VALUES (@Nombre, @Documento, @Direccion, @Provincia, @Pais, @CodigoPostal, @Condiciones, @Celular, @Telefono, @Email, @FechaInicio, @Limite, @Lista, @Foto)";
+
+                sqlCommand.Parameters.AddWithValue("@Nombre", client.Nombre);
+                sqlCommand.Parameters.AddWithValue("@Documento", client.Documento);
+                sqlCommand.Parameters.AddWithValue("@Direccion", client.Direccion);
+                sqlCommand.Parameters.AddWithValue("@Provincia", client.Provincia);
+                sqlCommand.Parameters.AddWithValue("@Pais", client.Pais);
+                sqlCommand.Parameters.AddWithValue("@CodigoPostal", client.CodigoPostal);
+                sqlCommand.Parameters.AddWithValue("@Condiciones", client.Condiciones);
+                sqlCommand.Parameters.AddWithValue("@Celular", client.Celular);
+                sqlCommand.Parameters.AddWithValue("@Telefono", client.Telefono);
+                sqlCommand.Parameters.AddWithValue("@Email", client.Email);
+                sqlCommand.Parameters.AddWithValue("@FechaInicio", client.FechaInicio);
+                sqlCommand.Parameters.AddWithValue("@Limite", client.Limite);
+                sqlCommand.Parameters.AddWithValue("@Lista", client.Lista);
+                sqlCommand.Parameters.AddWithValue("@Foto", Functions.ImageToBase64(client.Foto, System.Drawing.Imaging.ImageFormat.Jpeg));
+
+                sqlCommand.ExecuteNonQuery();
+
+                DBConnection.CloseConnection();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
+        }
     }
 }
