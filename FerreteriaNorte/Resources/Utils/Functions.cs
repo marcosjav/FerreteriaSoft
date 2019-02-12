@@ -73,6 +73,27 @@ namespace FerreteriaNorte.Resources.Utils
         }
 
         /// <summary>
+        /// Converts a image path to base64
+        /// </summary>
+        /// <param name="Path">The path to the image</param>
+        /// <returns>A base64 string of the image</returns>
+        public static string imagePathToBase64(string Path)
+        {
+            using (Image image = Image.FromFile(Path))
+            {
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    byte[] imageBytes = m.ToArray();
+
+                    // Convert byte[] to Base64 String
+                    string base64String = Convert.ToBase64String(imageBytes);
+                    return base64String;
+                }
+            }
+        }
+
+        /// <summary>
         /// Read the response of request to a specific url.
         /// It's util to send GET request
         /// </summary>
@@ -154,6 +175,45 @@ namespace FerreteriaNorte.Resources.Utils
             response.Close();
 
             return Tuple.Create(status, responseFromServer);
+        }
+
+        /// <summary>
+        /// Check if string is a valid email
+        /// </summary>
+        /// <param name="email">String to evaluate</param>
+        /// <returns></returns>
+        static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static string createRequest(string baseURL, Dictionary<string,string> parms)
+        {
+            string request = Properties.Resources.base_url + baseURL;
+            
+            bool first = true;
+            foreach (KeyValuePair<string, string> entry in parms)
+            {
+                if (!first)
+                    request += "&";
+                else
+                {
+                    request += "?";
+                    first = false;
+                }
+
+                request += entry.Key + "=" + entry.Value;
+            }
+
+            return request;
         }
     }
 }

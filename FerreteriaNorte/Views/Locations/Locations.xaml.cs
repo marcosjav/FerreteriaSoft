@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,16 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FerreteriaNorte.Products
+namespace FerreteriaNorte.Views.Locations
 {
     /// <summary>
-    /// Lógica de interacción para ProductList.xaml
+    /// Lógica de interacción para Locations.xaml
     /// </summary>
-    public partial class ProductList : Page
+    public partial class Locations : Page
     {
-        public ProductList()
+        public Locations()
         {
             InitializeComponent();
+        }
+
+        private void btnAddCountry_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

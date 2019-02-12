@@ -59,5 +59,14 @@ namespace FerreteriaNorte.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a http://localhost:8081/ferreterianorte/index.php/.
+        /// </summary>
+        internal static string base_url {
+            get {
+                return ResourceManager.GetString("base_url", resourceCulture);
+            }
+        }
     }
 }

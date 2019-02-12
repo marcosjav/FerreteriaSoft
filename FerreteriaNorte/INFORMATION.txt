@@ -1,0 +1,14 @@
+﻿DATAGRID
+	Para agregar directamente un List<T> como itemsSource en un DataGrid, la clase T de la lista debe contener los atributos Value y Text
+
+	
+DATAGRID AGREGAR DATATABLE
+	In cs file
+
+	DataTable employeeData = CreateDataTable();
+	gridEmployees.DataContext = employeeData.DefaultView;
+
+	In xaml file
+
+	<DataGrid Name="gridEmployees" ItemsSource="{Binding}">
+

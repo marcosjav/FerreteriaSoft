@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FerreteriaNorte.Classes
+namespace FerreteriaNorte.Classes.Clients
 {
     class Client
     {

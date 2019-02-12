@@ -1,0 +1,6 @@
+﻿06/01/19
+-Corregí la BD y agregué la funcionalidad completa de agregar un nuevo ítem en el modelo, falta agregar acá
+-Creé la clase "NewItemForm.cs" que se serializa para convertir directamente a json y enviar como POST al WS
+	- Cómo serializar: https://stackoverflow.com/questions/39952331/how-to-convert-c-sharp-class-properties-into-json-file
+	- Herramienta JSON2Csharp: http://json2csharp.com
+	- Herramienta para modelar JSON online: https://jsoneditoronline.org/

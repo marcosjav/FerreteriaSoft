@@ -1,0 +1,9 @@
+GUARDAR CONFIGURACIÓN DE APLICACIÓN
+	If you work with Visual Studio then it is pretty easy to get persistable settings. Right click on the project in Solution Explorer, choose Properties. Select the Settings tab, click on the hyperlink if settings doesn't exist. Use the Settings tab to create application settings. Visual Studio creates the files Settings.settings and Settings.Designer.settings that contain the singleton class Settings inherited from ApplicationSettingsBase. You can access this class from your code to read/write application settings:
+
+	Properties.Settings.Default["SomeProperty"] = "Some Value";
+	Properties.Settings.Default.Save(); // Saves settings in application configuration file
+
+	This technique is applicable both for console, Windows Forms and other project types.
+
+	Note that you need to set the scope property of your settings. If you select Application scope then Settings.Default.< your property > will be read-only.

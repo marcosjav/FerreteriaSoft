@@ -7,10 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="567.469" Loaded="Window_Loaded">
     <Grid>
-        <Frame x:Name="mainFrame" HorizontalAlignment="Stretch" Margin="10,50,10,10" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
-        <Button x:Name="button" Content="Acerca" HorizontalAlignment="Left" Margin="53.427,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="button1" Content="Cambiar" HorizontalAlignment="Left" Margin="133.427,10,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <Button x:Name="button2" Content="Navegar" HorizontalAlignment="Left" Margin="213.427,10,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
-        <Button x:Name="button3" Content="PruebaMySql" HorizontalAlignment="Left" Margin="293.427,10,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
+        <Frame x:Name="mainFrame" HorizontalAlignment="Stretch" Margin="95,10,10,10" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+        <Button x:Name="btnNewBrand" Content="Nueva Marca" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnNewCompany" Content="Nueva Empresa" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnNewItem" Content="Nuevo Art." HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnSettings" Content="Configuración" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnItemList" Content="Artículos" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnNewSale" Content="Nueva Venta" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnBrandList" Content="Marcas" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnCompanyList" Content="Empresas" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnSaleList" Content="Ventas" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnNewShop" Content="Nuevo Local" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnShopList" Content="Locales" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
 </Window>

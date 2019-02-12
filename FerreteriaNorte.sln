@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FerreteriaNorte", "FerreteriaNorte\FerreteriaNorte.csproj", "{FE51028C-1A9B-4990-A141-04EB7457394D}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup2", "Setup2\Setup2.vdproj", "{C19FB24B-4CF5-4AF3-84DC-0FBE4B963525}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{FE51028C-1A9B-4990-A141-04EB7457394D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE51028C-1A9B-4990-A141-04EB7457394D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE51028C-1A9B-4990-A141-04EB7457394D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19FB24B-4CF5-4AF3-84DC-0FBE4B963525}.Debug|Any CPU.ActiveCfg = Debug
+		{C19FB24B-4CF5-4AF3-84DC-0FBE4B963525}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
