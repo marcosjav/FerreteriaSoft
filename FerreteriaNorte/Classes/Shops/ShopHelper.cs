@@ -23,15 +23,15 @@ namespace FerreteriaNorte.Classes.Shops
 
             if (int.TryParse(json_id, out id) && json_name != null && int.TryParse(json_address_id, out id_address))
             {
-                string json_address = jsonShop[DBKeys.Address.STREET].ToString() ?? "";
+                string json_address = (jsonShop[DBKeys.Address.STREET]??"").ToString();
                 json_address += " ";
-                json_address += jsonShop[DBKeys.Address.NUMBER].ToString() ?? "";
+                json_address += (jsonShop[DBKeys.Address.NUMBER] ?? "").ToString();
                 json_address += " - ";
-                json_address += jsonShop[DBKeys.City.NAME].ToString() ?? "";
+                json_address += (jsonShop[DBKeys.City.NAME] ?? "").ToString();
                 json_address += " - ";
-                json_address += jsonShop[DBKeys.Province.NAME].ToString() ?? "";
+                json_address += (jsonShop[DBKeys.Province.NAME] ?? "").ToString();
                 json_address += " - ";
-                json_address += jsonShop[DBKeys.Country.NAME].ToString() ?? "";
+                json_address += (jsonShop[DBKeys.Country.NAME] ?? "").ToString();
 
                 if (json_address != null && json_address.Length > 1)
                 {
@@ -71,10 +71,8 @@ namespace FerreteriaNorte.Classes.Shops
         public static List<Shop> GetFullShops()
         {
             List<Shop> list = new List<Shop>();
-
-            string request = Functions.createRequest("shop/fulllist", new Dictionary<string, string>());
-
-            string response = Functions.readRequest(request);
+            
+            string response = Functions.createRequest("shop/fulllist", new Dictionary<string, string>());
 
             JArray jArray = JArray.Parse(response);
 
@@ -124,36 +122,36 @@ namespace FerreteriaNorte.Classes.Shops
             }
         }
 
-        public static void setShopGrid2(DataGrid datagrid)
-        {
-            List<Shop> shops = GetFullShops();
-            datagrid.ItemsSource = shops;
+        //public static void setShopGrid2(DataGrid datagrid)
+        //{
+        //    List<Shop> shops = GetFullShops();
+        //    datagrid.ItemsSource = shops;
 
-            datagrid.SelectionMode = DataGridSelectionMode.Extended;
-            datagrid.IsReadOnly = true;
+        //    datagrid.SelectionMode = DataGridSelectionMode.Extended;
+        //    datagrid.IsReadOnly = true;
 
-            foreach (DataGridColumn item in datagrid.Columns)
-            {
-                switch ((string)item.Header)
-                {
-                    case "Value":
-                        item.Header = "Código";
-                        item.DisplayIndex = 0;
-                        break;
-                    case "Text":
-                        item.Header = "Nombre";
-                        item.DisplayIndex = 1;
-                        break;
-                    case "address":
-                        item.Header = "Dirección";
-                        item.DisplayIndex = 1;
-                        break;
-                    default:
-                        item.Visibility = System.Windows.Visibility.Hidden;
-                        break;
-                }
-            }
-        }
+        //    foreach (DataGridColumn item in datagrid.Columns)
+        //    {
+        //        switch ((string)item.Header)
+        //        {
+        //            case "Value":
+        //                item.Header = "Código";
+        //                item.DisplayIndex = 0;
+        //                break;
+        //            case "Text":
+        //                item.Header = "Nombre";
+        //                item.DisplayIndex = 1;
+        //                break;
+        //            case "address":
+        //                item.Header = "Dirección";
+        //                item.DisplayIndex = 1;
+        //                break;
+        //            default:
+        //                item.Visibility = System.Windows.Visibility.Hidden;
+        //                break;
+        //        }
+        //    }
+        //}
 
     }
 }

@@ -39,8 +39,10 @@ namespace FerreteriaNorte
             NewBrand,
             BrandList,
             NewCompany,
+            CompanyList,
             Settings,
-            Shops
+            Shops,
+            NewShop
         }
 
         public MainWindow()
@@ -59,8 +61,10 @@ namespace FerreteriaNorte
             pages.Add(PageType.NewBrand, new NewBrand());
             pages.Add(PageType.BrandList, new BrandList());
             pages.Add(PageType.NewCompany, new NewCompany());
+            pages.Add(PageType.CompanyList, new CompanyList());
             pages.Add(PageType.Settings, new UserSettings());
             pages.Add(PageType.Shops, new ShopList());
+            pages.Add(PageType.NewShop, new NewShop());
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -95,6 +99,12 @@ namespace FerreteriaNorte
                     break;
                 case "btnShopList":
                     mainFrame.Navigate(pages[PageType.Shops]);
+                    break;
+                case "btnNewShop":
+                    mainFrame.Navigate(pages[PageType.NewShop]);
+                    break;
+                case "btnCompanyList":
+                    mainFrame.Navigate(pages[PageType.CompanyList]);
                     break;
                 default:
                     break;

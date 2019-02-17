@@ -103,5 +103,26 @@ namespace FerreteriaNorte.Resources.Utils
             public const string NAME = "name_shop";
             public const string ADDRESS = "address_id_address";
         }
+
+        public static class Phone
+        {
+            public const string ID = "id_phone";
+            public const string AREA = "area_phone";
+            public const string NUMBER = "number_phone";
+            public const string TYPE = "type";
+        }
+
+        public static class PhoneType
+        {
+            public const string ID = "id";
+            public const string NAME = "name";
+        }
+
+        public static class CompanyHasEmail
+        {
+            public const string ID = "id_email";
+            public const string ADDRESS = "address_email";
+            public const string IDCOMPANY = "company_id";
+        }
     }
 }

@@ -4,9 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FerreteriaNorte.Views.Shops"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="NewShop">
+      mc:Ignorable="d"
+      Title="NewShop" Loaded="Page_Loaded" Height="700" Width="501.569">
 
     <Grid>
         <GroupBox x:Name="groupBox" Header="Nuevo Local" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -14,30 +13,34 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Separator/>
                 <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415"/>
                 <Label x:Name="label" Content="Nombre" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="textBoxStreet" HorizontalAlignment="Left" Height="23" Margin="69,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415"/>
                 <TextBox x:Name="textBoxNumber" HorizontalAlignment="Left" Height="23" Margin="69,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415"/>
                 <ComboBox x:Name="comboBoxCity" HorizontalAlignment="Left" Margin="69,92,0,0" VerticalAlignment="Top" Width="120"/>
-                <ComboBox x:Name="comboBoxProvince" HorizontalAlignment="Left" Margin="69,65,0,0" VerticalAlignment="Top" Width="120"/>
-                <ComboBox x:Name="comboBoxCountry" HorizontalAlignment="Left" Margin="69,38,0,0" VerticalAlignment="Top" Width="120"/>
+                <ComboBox x:Name="comboBoxProvince" HorizontalAlignment="Left" Margin="69,65,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxProvince_SelectionChanged"/>
+                <ComboBox x:Name="comboBoxCountry" HorizontalAlignment="Left" Margin="69,38,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxCountry_SelectionChanged"/>
                 <Label x:Name="label_Copy" Content="Calle" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label_Copy1" Content="Número" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label_Copy2" Content="Ciudad" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label_Copy3" Content="Provincia" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label_Copy4" Content="País" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="btnClear" Content="Limpiar" HorizontalAlignment="Left" Margin="329,398,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3.012,-0.591"/>
-                <Button x:Name="btnSave" Content="Guardar" HorizontalAlignment="Left" Margin="409,398,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3.012,-0.591" Click="btnSave_Click"/>
+                <Button x:Name="btnClear" Content="Limpiar" HorizontalAlignment="Left" Margin="329,640,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3.012,-0.591" Click="btnClear_Click"/>
+                <Button x:Name="btnSave" Content="Guardar" HorizontalAlignment="Left" Margin="409,640,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3.012,-0.591" Click="btnSave_Click"/>
                 <TextBox x:Name="textBoxPhoneArea" HorizontalAlignment="Left" Height="23" Margin="69,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
                 <Label x:Name="label_Copy5" Content="Área" HorizontalAlignment="Left" Margin="10,217,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="label1" Content="Teléfonos" HorizontalAlignment="Left" Margin="166,186,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label1" Content="Teléfonos" HorizontalAlignment="Left" Margin="166,186,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <TextBox x:Name="textBoxPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="195,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289"/>
                 <Label x:Name="label_Copy6" Content="Número" HorizontalAlignment="Left" Margin="136,217,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="comboBoxPhoneType" HorizontalAlignment="Left" Margin="69,245,0,0" VerticalAlignment="Top" Width="120"/>
                 <Label x:Name="label_Copy7" Content="Tipo" HorizontalAlignment="Left" Margin="10,245,0,0" VerticalAlignment="Top"/>
                 <DataGrid x:Name="dataGridPhones" HorizontalAlignment="Left" Height="100" Margin="69,272,0,0" VerticalAlignment="Top" Width="415"/>
-                <Button x:Name="btnAddPhone" Content="Agregar teléfono" HorizontalAlignment="Left" Margin="195,245,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="3.012,-0.591"/>
+                <Button x:Name="btnAddPhone" Content="Agregar teléfono" HorizontalAlignment="Left" Margin="195,245,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="3.012,-0.591" Click="btnAddPhone_Click"/>
+                <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Height="23" Margin="65,434,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289"/>
+                <Label x:Name="label_Copy8" Content="Dirección" HorizontalAlignment="Left" Margin="4,434,0,0" VerticalAlignment="Top"/>
+                <DataGrid x:Name="dataGridEmail" HorizontalAlignment="Left" Height="100" Margin="65,465,0,0" VerticalAlignment="Top" Width="415" HeadersVisibility="None"/>
+                <Button x:Name="btnAddEmail" Content="Agregar correo" HorizontalAlignment="Left" Margin="374,437,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="3.012,-0.591" Click="btnAddEmail_Click"/>
+                <Label x:Name="label1_Copy" Content="Correos" HorizontalAlignment="Left" Margin="166,403,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             </Grid>
         </GroupBox>
 

@@ -12,3 +12,5 @@ DATAGRID AGREGAR DATATABLE
 
 	<DataGrid Name="gridEmployees" ItemsSource="{Binding}">
 
+DATAGRID LISTA DE STRINGS
+	usar StringValue class

@@ -147,7 +147,7 @@ namespace FerreteriaNorte.Resources.Utils
             //string postData = "This is a test that posts this string to a Web server.";
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
             // Set the ContentType property of the WebRequest.  
-            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentType = "application/json";
             // Set the ContentLength property of the WebRequest.  
             request.ContentLength = byteArray.Length;
             // Get the request stream.  
@@ -182,7 +182,7 @@ namespace FerreteriaNorte.Resources.Utils
         /// </summary>
         /// <param name="email">String to evaluate</param>
         /// <returns></returns>
-        static bool IsValidEmail(string email)
+        public static bool IsValidEmail(string email)
         {
             try
             {
@@ -213,7 +213,8 @@ namespace FerreteriaNorte.Resources.Utils
                 request += entry.Key + "=" + entry.Value;
             }
 
-            return request;
+            return Functions.readRequest(request);
         }
+
     }
 }

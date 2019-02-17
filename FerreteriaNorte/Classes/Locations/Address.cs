@@ -57,6 +57,16 @@ namespace FerreteriaNorte.Classes.Locations
         public string name { get; set; }
         public int province { get; set; }
 
+        // This properties are used to combobox
+        public string Text { get; set; }
+        public object Value { get; set; }
+
+        private void setValues()
+        {
+            this.Text = this.name;
+            this.Value = this.id;
+        }
+
         public City()
         {
 
@@ -66,6 +76,7 @@ namespace FerreteriaNorte.Classes.Locations
         {
             this.name = name;
             this.province = province;
+            setValues();
         }
 
         public City(int id, string name, int province)
@@ -73,6 +84,12 @@ namespace FerreteriaNorte.Classes.Locations
             this.id = id;
             this.name = name;
             this.province = province;
+            setValues();
+        }
+
+        public override string ToString()
+        {
+            return this.name;
         }
 
         public int CompareTo(object obj)
@@ -87,6 +104,16 @@ namespace FerreteriaNorte.Classes.Locations
         public string name { get; set; }
         public int country { get; set; }
 
+        // This properties are used to combobox
+        public string Text { get; set; }
+        public object Value { get; set; }
+
+        private void setValues()
+        {
+            this.Text = this.name;
+            this.Value = this.id;
+        }
+
         public Province()
         {
 
@@ -97,6 +124,12 @@ namespace FerreteriaNorte.Classes.Locations
             this.id = id;
             this.name = name;
             this.country = country;
+            setValues();
+        }
+
+        public override string ToString()
+        {
+            return this.name;
         }
 
         public int CompareTo(object obj)
@@ -110,6 +143,16 @@ namespace FerreteriaNorte.Classes.Locations
         public int id { get; set; }
         public string name { get; set; }
 
+        // This properties are used to combobox
+        public string Text { get; set; }
+        public object Value { get; set; }
+
+        private void setValues()
+        {
+            this.Text = this.name;
+            this.Value = this.id;
+        }
+
         public Country()
         {
 
@@ -119,11 +162,17 @@ namespace FerreteriaNorte.Classes.Locations
         {
             this.id = id;
             this.name = name;
+            setValues();
         }
 
         public Country(string name)
         {
             this.name = name;
+        }
+
+        public override string ToString()
+        {
+            return this.name;
         }
 
         public int CompareTo(object obj)

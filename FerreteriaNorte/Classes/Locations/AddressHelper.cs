@@ -139,13 +139,19 @@ namespace FerreteriaNorte.Classes.Locations
         /// Call to DB API REST to get the Province list
         /// </summary>
         /// <returns>A list of Province objects</returns>
-        public static List<Province> GetProvince()
+        public static List<Province> GetProvince(int id = 0)
         {
             List<Province> provinces = new List<Province>();
 
-            string request = Properties.Resources.base_url + "location/province";
+            //string request = Properties.Resources.base_url + "location/province";
 
-            string response = Functions.readRequest(request);
+            //string response = Functions.readRequest(request);
+
+            Dictionary<string, string> parms = new Dictionary<string, string>();
+            if (id > 0)
+                parms.Add(DBKeys.Province.ID, id.ToString());
+
+            string response = Functions.createRequest("location/province", parms);
 
             JArray jsonArray = JArray.Parse(response);
 
@@ -168,13 +174,19 @@ namespace FerreteriaNorte.Classes.Locations
         /// Call to DB API REST to get the City list
         /// </summary>
         /// <returns>A list of City objects</returns>
-        public static List<City> GetCity()
+        public static List<City> GetCity(int id = 0)
         {
             List<City> cities = new List<City>();
 
-            string request = Properties.Resources.base_url + "location/city";
+            //string request = Properties.Resources.base_url + "location/city";
 
-            string response = Functions.readRequest(request);
+            //string response = Functions.readRequest(request);
+
+            Dictionary<string, string> parms = new Dictionary<string, string>();
+            if (id > 0)
+                parms.Add(DBKeys.Province.ID, id.ToString());
+
+            string response = Functions.createRequest("location/city", parms);
 
             JArray jsonArray = JArray.Parse(response);
 

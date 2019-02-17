@@ -29,7 +29,7 @@ namespace FerreteriaNorte.Views.Shops
         private void dataGridShops_Loaded(object sender, RoutedEventArgs e)
         {
             //dataGridShops.ItemsSource = ShopHelper.GetFullShops();
-            ShopHelper.setShopGrid2(dataGridShops);
+            ShopHelper.setShopGrid(dataGridShops);
         }
     }
 }

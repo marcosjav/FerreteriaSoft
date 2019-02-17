@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FerreteriaNorte.Classes.Extra;
+using FerreteriaNorte.Classes.Locations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +10,13 @@ namespace FerreteriaNorte.Classes.Companies
 {
     class Company : IComparable
     {
-        int id { get; set; }
-        string name { get; set; }
-        string web { get; set; }
-        string cuit { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string web { get; set; }
+        public string cuit { get; set; }
+        public Address address { get; set; }
+        public List<Phone> phones { get; set; }
+        public List<string> emails { get; set; }
 
         // This properties are used to combobox
         public string Text { get; set; }
@@ -29,6 +34,14 @@ namespace FerreteriaNorte.Classes.Companies
             this.Text = name;
             this.web = web;
             this.cuit = cuit;
+            setValues();
+        }
+
+        public Company(int id, string name, string web, string cuit, Address address, List<Phone> phones, List<string> emails) : this(id, name, web, cuit)
+        {
+            this.address = address;
+            this.phones = phones;
+            this.emails = emails;
         }
 
         public override bool Equals(object obj)
@@ -53,11 +66,49 @@ namespace FerreteriaNorte.Classes.Companies
             return Text;
         }
 
+        public string getFullDescription()
+        {
+            return getTitle() + Environment.NewLine + Environment.NewLine + getData();
+            
+        }
+
+        public string getTitle()
+        {
+            return id + " - " + name;
+        }
+
+        public string getData()
+        {
+            string data = "";
+            data += "CIUT:" + Environment.NewLine + "    " + cuit + Environment.NewLine + Environment.NewLine;
+            data += "Dirección:" + Environment.NewLine;
+            data += "    " + address.street + " " + address.number + Environment.NewLine + Environment.NewLine;
+            data += "Web:" + Environment.NewLine + "    " + web + Environment.NewLine + Environment.NewLine;
+            data += "Teléfonos:" + Environment.NewLine;
+            foreach (Phone phone in phones)
+            {
+                data += "     (" + PhoneHelper.GetPhoneType(phone.type).name + ") " + phone.area + phone.number + Environment.NewLine;
+            }
+            data += Environment.NewLine + "Emails:" + Environment.NewLine;
+            foreach (string email in emails)
+            {
+                data += "    " + email + Environment.NewLine;
+            }
+            return data;
+        }
+
         public int CompareTo(object obj)
         {
             return name.CompareTo(((Company)obj).name);
         }
 
+        private void setValues()
+        {
+            this.Value = this.id;
+            this.Text = this.name;
+        }
+
+        /*   Usado para los combobox  */
         public class CompanyItem : Company
         {
             string code { get; set; }

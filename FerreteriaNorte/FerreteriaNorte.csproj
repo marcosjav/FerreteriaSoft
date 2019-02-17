@@ -75,7 +75,10 @@
     <Compile Include="Classes\Clients\ClientException.cs" />
     <Compile Include="Classes\Companies\Company.cs" />
     <Compile Include="Classes\Companies\CompanyHelper.cs" />
+    <Compile Include="Classes\Extra\Phone.cs" />
+    <Compile Include="Classes\Extra\PhoneHelper.cs" />
     <Compile Include="Classes\Extra\PictureHelper.cs" />
+    <Compile Include="Classes\Extra\Responses.cs" />
     <Compile Include="Classes\Extra\Title.cs" />
     <Compile Include="Classes\Extra\TitleHelper.cs" />
     <Compile Include="Classes\Items\Item.cs" />
@@ -99,6 +102,9 @@
     </Compile>
     <Compile Include="Views\Brands\NewBrand.xaml.cs">
       <DependentUpon>NewBrand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Companies\CompanyList.xaml.cs">
+      <DependentUpon>CompanyList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Companies\NewCompany.xaml.cs">
       <DependentUpon>NewCompany.xaml</DependentUpon>
@@ -155,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Brands\NewBrand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Companies\CompanyList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
