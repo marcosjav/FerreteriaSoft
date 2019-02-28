@@ -27,6 +27,8 @@ namespace FerreteriaNorte.Views.Items
     public partial class NewItem : Page
     {
         private List<Company.CompanyItem> companies = new List<Company.CompanyItem>();
+        private List<Subtitle> subtitles = new List<Subtitle>();
+        private List<Brand> brands = new List<Brand>();
 
         public NewItem()
         {
@@ -39,7 +41,7 @@ namespace FerreteriaNorte.Views.Items
 
             comboTitle.ItemsSource = TitleHelper.GetTitles();
 
-            comboCompany.ItemsSource = CompanyHelper.GetCompanys();
+            comboCompany.ItemsSource = CompanyHelper.GetCompanies();
 
             comboShop.ItemsSource = ShopHelper.GetShops();
 
@@ -52,7 +54,7 @@ namespace FerreteriaNorte.Views.Items
         {
             if (comboTitle.SelectedIndex >= 0)
             {
-                comboSubtitle.ItemsSource = TitleHelper.GetSubtitles((int)((Item)comboTitle.SelectedItem).Value);
+                comboSubtitle.ItemsSource = TitleHelper.GetSubtitles((int)((Title)comboTitle.SelectedItem).Value);
             }
         }
 
@@ -76,7 +78,7 @@ namespace FerreteriaNorte.Views.Items
 
         private void loadCompanies()
         {
-            List<Company> allCompanies = CompanyHelper.GetCompanys();
+            List<Company> allCompanies = CompanyHelper.GetCompanies();
             List<Company> companiesCombo = new List<Company>();
 
             foreach (Company item in allCompanies)
@@ -118,13 +120,27 @@ namespace FerreteriaNorte.Views.Items
 
         private void buttonAddBrand_Click(object sender, RoutedEventArgs e)
         {
-            //frameNewBrand.Navigate(new NewBrand());
-            //popupContent.Visibility = Visibility.Visible;
+            Brand brand = (Brand)comboBrand.SelectedItem;
+
+            if (!brands.Contains(brand))
+                brands.Add(brand);
+
+            BrandHelper.setBrandGrid(dataGridBrands, brands);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void buttonAddSubTitle_Click(object sender, RoutedEventArgs e)
+        {
+            Subtitle subtitle = (Subtitle)comboSubtitle.SelectedItem;
+
+            if (!subtitles.Contains(subtitle))
+                subtitles.Add(subtitle);
+
+            TitleHelper.setSubtitleGrid(dataGridCategories, subtitles);
         }
     }
 }

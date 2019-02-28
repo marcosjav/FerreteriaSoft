@@ -1,4 +1,18 @@
-﻿06/01/19
+﻿************ 
+* 27/02/19 *
+************
+LISTO:
+	- Agregar categorías en NewItem
+	- Agregar Marcas en NewItem
+
+SIGUE:
+	- Crear (o verificar si existe) clase Stock para agregar stocks en NewItem
+	- Agregar proveedores con su código propio
+	- Agregar descuentos de cada proveedor
+
+************
+* 06/01/19 *
+************
 -Corregí la BD y agregué la funcionalidad completa de agregar un nuevo ítem en el modelo, falta agregar acá
 -Creé la clase "NewItemForm.cs" que se serializa para convertir directamente a json y enviar como POST al WS
 	- Cómo serializar: https://stackoverflow.com/questions/39952331/how-to-convert-c-sharp-class-properties-into-json-file

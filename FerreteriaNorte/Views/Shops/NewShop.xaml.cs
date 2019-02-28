@@ -36,7 +36,7 @@ namespace FerreteriaNorte.Views.Shops
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            comboBoxCountry.ItemsSource = AddressHelper.GetCountry();
+            comboBoxCountry.ItemsSource = AddressHelper.GetCountries();
 
             comboBoxPhoneType.ItemsSource = PhoneHelper.GetPhoneTypes();
         }
@@ -45,7 +45,7 @@ namespace FerreteriaNorte.Views.Shops
         {
             if (comboBoxCountry.SelectedIndex >= 0)
             {
-                comboBoxProvince.ItemsSource = AddressHelper.GetProvince(((Country)comboBoxCountry.SelectedItem).id);
+                comboBoxProvince.ItemsSource = AddressHelper.GetProvinces(((Country)comboBoxCountry.SelectedItem).id);
             }
         }
 
@@ -53,7 +53,7 @@ namespace FerreteriaNorte.Views.Shops
         {
             if (comboBoxProvince.SelectedIndex >= 0)
             {
-                comboBoxCity.ItemsSource = AddressHelper.GetCity(((Province)comboBoxProvince.SelectedItem).id);
+                comboBoxCity.ItemsSource = AddressHelper.GetCities(((Province)comboBoxProvince.SelectedItem).id);
             }
         }
 
@@ -149,13 +149,4 @@ namespace FerreteriaNorte.Views.Shops
         }
     }
 
-    public class StringValue
-    {
-        public StringValue(string s)
-        {
-            _value = s;
-        }
-        public string Value { get { return _value; } set { _value = value; } }
-        string _value;
-    }
 }

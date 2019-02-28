@@ -12,6 +12,11 @@ namespace FerreteriaNorte.Classes.Locations
 {
     class AddressHelper
     {
+        private static List<Address> addresses;
+        private static List<City> cities;
+        private static List<Province> provinces;
+        private static List<Country> countries;
+
         /*  PARSE SECTION   */
 
             /// <summary>
@@ -110,7 +115,7 @@ namespace FerreteriaNorte.Classes.Locations
         /// Call to DB API REST to get the Country list
         /// </summary>
         /// <returns>A list of Country objects</returns>
-        public static List<Country> GetCountry()
+        public static List<Country> GetCountries()
         {
             List<Country> countries = new List<Country>();
 
@@ -139,7 +144,7 @@ namespace FerreteriaNorte.Classes.Locations
         /// Call to DB API REST to get the Province list
         /// </summary>
         /// <returns>A list of Province objects</returns>
-        public static List<Province> GetProvince(int id = 0)
+        public static List<Province> GetProvinces(int id = 0)
         {
             List<Province> provinces = new List<Province>();
 
@@ -174,7 +179,7 @@ namespace FerreteriaNorte.Classes.Locations
         /// Call to DB API REST to get the City list
         /// </summary>
         /// <returns>A list of City objects</returns>
-        public static List<City> GetCity(int id = 0)
+        public static List<City> GetCities(int id = 0)
         {
             List<City> cities = new List<City>();
 
@@ -209,7 +214,7 @@ namespace FerreteriaNorte.Classes.Locations
         /// Call to DB API REST to get the Address list
         /// </summary>
         /// <returns>A list of Address objects</returns>
-        public static List<Address> GetAddress()
+        public static List<Address> GetAddresses()
         {
             List<Address> addresses = new List<Address>();
 
@@ -239,7 +244,7 @@ namespace FerreteriaNorte.Classes.Locations
         /* DATAGRID FUNCTIONS  */
         public static void setCountryGrid(DataGrid datagrid)
         {
-            List<Country> items = GetCountry();
+            List<Country> items = GetCountries();
 
             datagrid.ItemsSource = items;
 
@@ -268,7 +273,7 @@ namespace FerreteriaNorte.Classes.Locations
 
         public static void setProvinceGrid(DataGrid datagrid)
         {
-            List<Province> items = GetProvince();
+            List<Province> items = GetProvinces();
 
             datagrid.ItemsSource = items;
 
@@ -297,7 +302,7 @@ namespace FerreteriaNorte.Classes.Locations
 
         public static void setCityGrid(DataGrid datagrid)
         {
-            List<City> items = GetCity();
+            List<City> items = GetCities();
 
             datagrid.ItemsSource = items;
 
@@ -324,10 +329,11 @@ namespace FerreteriaNorte.Classes.Locations
 
         }
 
-        public static void setAddressGrid(DataGrid datagrid)
+        public static void setAddressGrid(DataGrid datagrid, List<Address> addresses = null)
         {
-            List<Address> items = GetAddress();
-
+            List<Address> items = addresses;//?? GetAddress();
+            
+            datagrid.ItemsSource = null;
             datagrid.ItemsSource = items;
 
             datagrid.SelectionMode = DataGridSelectionMode.Extended;
@@ -355,7 +361,7 @@ namespace FerreteriaNorte.Classes.Locations
 
         public static void LoadCountryGrid(DataGrid datagrid)
         {
-            List<Country> brands = GetCountry();
+            List<Country> brands = GetCountries();
             DataTable dt = new DataTable();
 
             CommonViewConfigurations.ConfigDataGrid(datagrid);
@@ -379,7 +385,7 @@ namespace FerreteriaNorte.Classes.Locations
 
         public static void LoadProvinceGrid(DataGrid datagrid)
         {
-            List<Province> brands = GetProvince();
+            List<Province> brands = GetProvinces();
             DataTable dt = new DataTable();
 
             CommonViewConfigurations.ConfigDataGrid(datagrid);
@@ -403,7 +409,7 @@ namespace FerreteriaNorte.Classes.Locations
 
         public static void LoadCityGrid(DataGrid datagrid)
         {
-            List<City> brands = GetCity();
+            List<City> brands = GetCities();
             DataTable dt = new DataTable();
 
             CommonViewConfigurations.ConfigDataGrid(datagrid);
@@ -427,7 +433,7 @@ namespace FerreteriaNorte.Classes.Locations
 
         public static void LoadAddressGrid(DataGrid datagrid)
         {
-            List<Address> brands = GetAddress();
+            List<Address> brands = GetAddresses();
             DataTable dt = new DataTable();
 
             CommonViewConfigurations.ConfigDataGrid(datagrid);
@@ -533,6 +539,46 @@ namespace FerreteriaNorte.Classes.Locations
         }
 
         /* END DATABASE FUNCTIONS */
+
+        public static Country GetCountry(int _id)
+        {
+            if (countries == null)
+            {
+                countries = GetCountries();
+            }
+
+            return countries.Find(x => x.Equals(_id));
+        }
+
+        public static Province GetProvince(int _id)
+        {
+            if (provinces == null)
+            {
+                provinces = GetProvinces();
+            }
+
+            return provinces.Find(x => x.Equals(_id));
+        }
+
+        public static City GetCity(int _id)
+        {
+            if (cities == null)
+            {
+                cities = GetCities();
+            }
+
+            return cities.Find(x => x.Equals(_id));
+        }
+
+        public static Address GetAddress(int _id)
+        {
+            if (addresses == null)
+            {
+                addresses = GetAddresses();
+            }
+
+            return addresses.Find(x => x.Equals(_id));
+        }
     }
 
 }

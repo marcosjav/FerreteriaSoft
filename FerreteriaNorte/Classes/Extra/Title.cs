@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace FerreteriaNorte.Classes.Extra
 {
-    class Item :IComparable
+    class Title :IComparable
     {
-        int id { get; set; }
-        string name { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
 
         // This properties are used to combobox
         public string Text { get; set; }
         public object Value { get; set; }
 
-        public Item()
+        public Title()
         {
         }
 
-        public Item(int id, string name)
+        public Title(int id, string name)
         {
             this.id = id;
             this.name = name;
@@ -29,7 +29,7 @@ namespace FerreteriaNorte.Classes.Extra
 
         public override bool Equals(object obj)
         {
-            var title = obj as Item;
+            var title = obj as Title;
             return title != null &&
                    id == title.id;
         }
@@ -42,15 +42,15 @@ namespace FerreteriaNorte.Classes.Extra
 
         public int CompareTo(object obj)
         {
-            return name.CompareTo(((Item)obj).name);
+            return name.CompareTo(((Title)obj).name);
         }
     }
 
     class Subtitle :IComparable
     {
-        int id { get; set; }
-        int title_id { get; set; }
-        string name { get; set; }
+        public int id { get; set; }
+        public int title_id { get; set; }
+        public string name { get; set; }
         
         // This properties are used to combobox
         public string Text { get; set; }
@@ -86,6 +86,17 @@ namespace FerreteriaNorte.Classes.Extra
         public int CompareTo(object obj)
         {
             return name.CompareTo(((Subtitle)obj).name);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1297908309;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + title_id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Text);
+            hashCode = hashCode * -1521134295 + EqualityComparer<object>.Default.GetHashCode(Value);
+            return hashCode;
         }
     }
 }

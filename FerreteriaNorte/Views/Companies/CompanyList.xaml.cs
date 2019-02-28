@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FerreteriaNorte.Classes.Companies;
+using FerreteriaNorte.Views.General;
 
 namespace FerreteriaNorte.Views.Companies
 {
@@ -42,6 +43,7 @@ namespace FerreteriaNorte.Views.Companies
             int itemId = int.Parse(row.Row.ItemArray[0].ToString());
             Company company = CompanyHelper.GetCompany(itemId);
             MessageBox.Show(company.getData(), company.getTitle());
+            //CustomMessageBox
         }
     }
 }

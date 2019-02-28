@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FerreteriaNorte.Classes.Extra
 {
-    public class StringValue
+    class StringValue
     {
         public StringValue(string s)
         {

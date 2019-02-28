@@ -4,17 +4,50 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FerreteriaNorte.Views.Companies"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="NewCompany">
+      mc:Ignorable="d"
+      Title="NewCompany" Height="410" Width="1000" Loaded="Page_Loaded">
 
     <Grid>
-        <GroupBox x:Name="groupBox" Header="Nueva Empresa" Margin="0,0,0,0" VerticalAlignment="Stretch">
-            <Grid HorizontalAlignment="Left" Height="414" Margin="0,10,-2,-4" VerticalAlignment="Top" Width="790">
-                <Label x:Name="label" Content="Razón Social" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="12"/>
-                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="92,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="300"/>
-                <Label x:Name="label_Copy" Content="Razón Social" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="12"/>
-                <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="92,38,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="300"/>
+        <GroupBox x:Name="groupBox" Header="Nuevo Proveedor" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415"/>
+                <Label x:Name="label" Content="Nombre" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBoxStreet" HorizontalAlignment="Left" Height="24" Margin="69,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415"/>
+                <TextBox x:Name="textBoxNumber" HorizontalAlignment="Left" Height="24" Margin="69,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="304"/>
+                <ComboBox x:Name="comboBoxCity" HorizontalAlignment="Left" Margin="364,174,0,0" VerticalAlignment="Top" Width="120"/>
+                <ComboBox x:Name="comboBoxProvince" HorizontalAlignment="Left" Margin="216,174,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxProvince_SelectionChanged"/>
+                <ComboBox x:Name="comboBoxCountry" HorizontalAlignment="Left" Margin="69,174,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxCountry_SelectionChanged"/>
+                <Label x:Name="label_Copy" Content="Calle" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy1" Content="Número" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy2" Content="Ciudad" HorizontalAlignment="Left" Margin="401,143,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy3" Content="Provincia" HorizontalAlignment="Left" Margin="248,143,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy4" Content="País" HorizontalAlignment="Left" Margin="114,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.633,0.635"/>
+                <Button x:Name="btnClear" Content="Limpiar" HorizontalAlignment="Left" Margin="819,363,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3.012,-0.591" Click="btnClear_Click"/>
+                <Button x:Name="btnSave" Content="Guardar" HorizontalAlignment="Left" Margin="899,363,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3.012,-0.591" Click="btnSave_Click"/>
+                <TextBox x:Name="textBoxPhoneArea" HorizontalAlignment="Left" Height="23" Margin="563,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
+                <Label x:Name="label_Copy5" Content="Área" HorizontalAlignment="Left" Margin="504,38,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label1" Content="Teléfonos" HorizontalAlignment="Left" Margin="731,12,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <TextBox x:Name="textBoxPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="689,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289"/>
+                <Label x:Name="label_Copy6" Content="Número" HorizontalAlignment="Left" Margin="630,38,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="comboBoxPhoneType" HorizontalAlignment="Left" Margin="563,66,0,0" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="label_Copy7" Content="Tipo" HorizontalAlignment="Left" Margin="504,66,0,0" VerticalAlignment="Top"/>
+                <DataGrid x:Name="dataGridPhones" HorizontalAlignment="Left" Height="100" Margin="563,93,0,0" VerticalAlignment="Top" Width="415"/>
+                <Button x:Name="btnAddPhone" Content="Agregar teléfono" HorizontalAlignment="Left" Margin="689,66,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="3.012,-0.591" Click="btnAddPhone_Click"/>
+                <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Height="23" Margin="559,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289"/>
+                <Label x:Name="label_Copy8" Content="Dirección" HorizontalAlignment="Left" Margin="498,227,0,0" VerticalAlignment="Top"/>
+                <DataGrid x:Name="dataGridEmail" HorizontalAlignment="Left" Height="100" Margin="559,258,0,0" VerticalAlignment="Top" Width="415" HeadersVisibility="None"/>
+                <Button x:Name="btnAddEmail" Content="Agregar correo" HorizontalAlignment="Left" Margin="868,230,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="3.012,-0.591" Click="btnAddEmail_Click"/>
+                <Label x:Name="label1_Copy" Content="Correos" HorizontalAlignment="Left" Margin="731,196,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <TextBox x:Name="textBoxCUIT" HorizontalAlignment="Left" Height="23" Margin="69,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415"/>
+                <Label x:Name="label_Copy9" Content="CUIT" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBoxWeb" HorizontalAlignment="Left" Height="23" Margin="69,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415"/>
+                <Label x:Name="label_Copy10" Content="WEB" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label1_Copy1" Content="Direcciones" HorizontalAlignment="Left" Margin="216,114,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Button x:Name="btnAddAddress" Content="Agregar dirección" HorizontalAlignment="Left" Margin="378,230,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="3.012,-0.591" Click="btnAddAddress_Click"/>
+                <DataGrid x:Name="dataGridAddresses" HorizontalAlignment="Left" Height="100" Margin="69,258,0,0" VerticalAlignment="Top" Width="415" HeadersVisibility="None"/>
             </Grid>
         </GroupBox>
     </Grid>

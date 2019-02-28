@@ -67,9 +67,11 @@ namespace FerreteriaNorte.Classes.Brands
         /// Load the list of brands into a DataGridView
         /// </summary>
         /// <param name="datagrid">The DataGridView object</param>
-        public static void setBrandGrid(DataGrid datagrid)
+        public static void setBrandGrid(DataGrid datagrid, List<Brand> brands = null)
         {
-            List<Brand> brands = GetBrands();
+            if (brands == null)
+                brands = GetBrands();
+
             datagrid.ItemsSource = brands;
 
             datagrid.SelectionMode = DataGridSelectionMode.Extended;

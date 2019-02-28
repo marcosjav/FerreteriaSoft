@@ -54,6 +54,9 @@ namespace FerreteriaNorte.Resources.Utils
             public const string LAST_UPDATE = "last_update_company";
             public const string WEB = "web_company";
             public const string CUIT = "cuit_company";
+            public const string PHONE_LIST = "phones";
+            public const string ADDRESS_LIST = "addresses";
+            public const string EMAIL_LIST = "emails";
             static class Item
             {
                 public const string CODE = "code";

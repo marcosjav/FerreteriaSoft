@@ -15,6 +15,10 @@ namespace FerreteriaNorte.Classes.Locations
         public string coordinates { get; set; }
         public int city { get; set; }
 
+        // This properties are used to combobox
+        public string Text { get; set; }
+        public object Value { get; set; }
+
         public Address()
         {
         }
@@ -26,6 +30,8 @@ namespace FerreteriaNorte.Classes.Locations
             this.zipCode = zipCode;
             this.coordinates = coordinates;
             this.city = city;
+            this.Text = this.ToString();
+            this.Value = this.id == 0 ? "" : this.id.ToString();
         }
 
         public Address(int id, string street, string number, string zipCode, string coordinates, int city)
@@ -36,6 +42,17 @@ namespace FerreteriaNorte.Classes.Locations
             this.zipCode = zipCode;
             this.coordinates = coordinates;
             this.city = city;
+            this.Text = this.ToString();
+            this.Value = this.id==0? "" : this.id.ToString();
+        }
+
+        public override string ToString()
+        {
+            City city = AddressHelper.GetCity(this.city);
+            Province province = AddressHelper.GetProvince(city.province);
+            Country country = AddressHelper.GetCountry(province.country);
+
+            return street + " " + number + " - " + city.name + " - " + province.name + " - " + country.name;
         }
 
         public int CompareTo(object obj)
@@ -51,7 +68,7 @@ namespace FerreteriaNorte.Classes.Locations
         }
     }
 
-    class City : IComparable
+    class City : IComparable, IEquatable<int>
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -96,9 +113,14 @@ namespace FerreteriaNorte.Classes.Locations
         {
             return this.name.CompareTo(((City)obj).name);
         }
+
+        public bool Equals(int other)
+        {
+            return id == other;
+        }
     }
 
-    class Province : IComparable
+    class Province : IComparable, IEquatable<int>
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -136,9 +158,14 @@ namespace FerreteriaNorte.Classes.Locations
         {
             return this.name.CompareTo(((Province)obj).name);
         }
+
+        public bool Equals(int other)
+        {
+            return id == other;
+        }
     }
 
-    class Country : IComparable
+    class Country : IComparable, IEquatable<int>
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -178,6 +205,11 @@ namespace FerreteriaNorte.Classes.Locations
         public int CompareTo(object obj)
         {
             return this.name.CompareTo(((Country)obj).name);
+        }
+
+        public bool Equals(int other)
+        {
+            return id == other;
         }
     }
 }

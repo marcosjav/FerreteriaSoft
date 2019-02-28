@@ -58,7 +58,7 @@
                         <DataGrid x:Name="dataGridCompanies" HorizontalAlignment="Left" Height="104" Margin="5,56,0,0" VerticalAlignment="Top" Width="258" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="3"/>
                         <TextBox x:Name="textCode" HorizontalAlignment="Left" Height="22" Margin="37,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" IsEnabled="False" Grid.Column="3"/>
                         <Label x:Name="label2_Copy1" Content="CÓDIGO" HorizontalAlignment="Left" Margin="2,30,0,0" VerticalAlignment="Top" Cursor="Cross" Grid.Column="1" Height="26" Width="55" Grid.ColumnSpan="3"/>
-                        <Button x:Name="buttonAddCompany" Content="+" HorizontalAlignment="Right" Margin="0,0,263,107" VerticalAlignment="Bottom" Width="24" Click="buttonAddCompany_Click" Grid.Column="3" Height="20" FontWeight="Bold"/>
+                        <Button x:Name="buttonAddCompany" Content="+" HorizontalAlignment="Right" Margin="0,0,263,112" VerticalAlignment="Bottom" Width="24" Grid.Column="3" Height="20" FontWeight="Bold"/>
                         <DataGrid x:Name="dataGridDiscounts" HorizontalAlignment="Left" Height="104" Margin="230,56,0,0" VerticalAlignment="Top" Width="258" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged" Grid.Column="3"/>
                         <TextBox x:Name="textDiscount" HorizontalAlignment="Left" Height="22" Margin="322,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" IsEnabled="False" Grid.Column="3"/>
                         <Label x:Name="label2_Copy2" Content="DESCUENTO" HorizontalAlignment="Left" Margin="244,2,0,0" VerticalAlignment="Top" Cursor="Cross" Grid.Column="3" Height="26" Width="86"/>
@@ -76,8 +76,8 @@
                 </Border>
                 <DataGrid x:Name="dataGridCategories" HorizontalAlignment="Left" Height="97" Margin="10,176,0,0" VerticalAlignment="Top" Width="258" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged"/>
                 <DataGrid x:Name="dataGridBrands" HorizontalAlignment="Left" Height="93" Margin="6,325,0,0" VerticalAlignment="Top" Width="262" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged"/>
-                <Button x:Name="buttonAddSubTitle" Content="+" HorizontalAlignment="Right" Margin="0,0,270,468" VerticalAlignment="Bottom" Width="24" Click="buttonAddBrand_Click" Height="23"/>
-                <Button x:Name="buttonAddStock" Content="+" HorizontalAlignment="Right" Margin="0,0,5,296" VerticalAlignment="Bottom" Width="24" Click="buttonAddBrand_Click" Height="22"/>
+                <Button x:Name="buttonAddSubTitle" Content="+" HorizontalAlignment="Right" Margin="0,0,270,468" VerticalAlignment="Bottom" Width="24" Click="buttonAddSubTitle_Click" Height="23"/>
+                <Button x:Name="buttonAddStock" Content="+" HorizontalAlignment="Right" Margin="0,0,5,296" VerticalAlignment="Bottom" Width="24" Height="22"/>
 
 
             </Grid>

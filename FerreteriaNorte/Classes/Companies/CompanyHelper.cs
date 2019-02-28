@@ -15,6 +15,8 @@ namespace FerreteriaNorte.Classes.Companies
 {
     class CompanyHelper
     {
+        private static List<Company> companies;
+
         /// <summary>
         /// Parse a Company JSONObject to a Company class object
         /// </summary>
@@ -34,12 +36,12 @@ namespace FerreteriaNorte.Classes.Companies
             if (int.TryParse(json_id, out id) && name != null)
             {
                 List<Phone> phones = new List<Phone>();
-                Address address = new Address();
+                List<Address> addresses = new List<Address>();
                 List<string> emails = new List<string>();
 
-                if (jsonCompany["phones"] != null)
+                if (jsonCompany[DBKeys.Company.PHONE_LIST] != null)
                 {
-                    JArray jPhones = new JArray(jsonCompany["phones"]);
+                    JArray jPhones = new JArray(jsonCompany[DBKeys.Company.PHONE_LIST]);
                     
                     foreach (JObject item in jPhones)
                     {
@@ -47,16 +49,27 @@ namespace FerreteriaNorte.Classes.Companies
                     }
                 }
 
-                if (jsonCompany["emails"] != null)
+                if (jsonCompany[DBKeys.Company.EMAIL_LIST] != null)
                 {
-                    JArray jEmails = new JArray(jsonCompany["emails"]);
+                    JArray jEmails = new JArray(jsonCompany[DBKeys.Company.EMAIL_LIST]);
 
                     foreach (string item in jEmails)
                     {
                         emails.Add(item);
                     }
                 }
-                return new Company(id, name, web, cuit, address, phones, emails);
+
+                if (jsonCompany[DBKeys.Company.ADDRESS_LIST] != null)
+                {
+                    JArray jAddresses = new JArray(jsonCompany[DBKeys.Company.ADDRESS_LIST]);
+
+                    foreach (JObject item in jAddresses)
+                    {
+                        jAddresses.Add(AddressHelper.parseAddress(item.ToString()));
+                    }
+                }
+
+                return new Company(id, name, web, cuit, addresses, phones, emails);
             }
 
             return null;
@@ -66,9 +79,9 @@ namespace FerreteriaNorte.Classes.Companies
         /// Call to DB API REST to get the Company list
         /// </summary>
         /// <returns>A list of Company objects</returns>
-        public static List<Company> GetCompanys(int id = 0)
+        public static List<Company> GetCompanies(int id = 0)
         {
-            List<Company> companys = new List<Company>();
+            List<Company> companies = new List<Company>();
 
             string request = Properties.Resources.base_url + "company/list"; //Properties.Settings.Default.base_url + "/Company/list";
 
@@ -84,20 +97,27 @@ namespace FerreteriaNorte.Classes.Companies
                 Company company = parseCompany(resp.GetValue("0").ToString());
                 List<Phone> phones = new List<Phone>();
                 List<string> emails = new List<string>();
+                List<Address> addresses = new List<Address>();
 
-                foreach (JObject item in resp.GetValue("phones"))
+                foreach (JObject item in resp.GetValue(DBKeys.Company.PHONE_LIST))
                 {
                     phones.Add(PhoneHelper.parsePhone(item.ToString()));
                 }
 
-                foreach (JObject item in resp.GetValue("emails"))
+                foreach (JObject item in resp.GetValue(DBKeys.Company.EMAIL_LIST))
                 {
                     emails.Add(item.GetValue(DBKeys.CompanyHasEmail.ADDRESS).ToString());
                 }
 
+                foreach (JObject item in resp.GetValue(DBKeys.Company.ADDRESS_LIST))
+                {
+                    addresses.Add(AddressHelper.parseAddress(item.ToString()));
+                }
+
                 company.phones = phones;
                 company.emails = emails;
-                companys.Add(company);
+                company.addresses = addresses;
+                companies.Add(company);
             }
             else
             {
@@ -108,27 +128,44 @@ namespace FerreteriaNorte.Classes.Companies
                     Company newCompany = parseCompany(str);
                     if (newCompany != null)
                     {
-                        companys.Add(newCompany);
+                        companies.Add(newCompany);
                     }
                 }
 
-                companys.Sort();
+                companies.Sort();
             }
-            return companys;
+            return companies;
         }
 
-        public static Company GetCompany(int id)
+        public static Company GetCompany(int _id)
         {
-            List<Company> companys = new List<Company>();
+            if (CompanyHelper.companies == null)
+            {
+                CompanyHelper.companies = GetCompanies();
+            }
+            Company company = CompanyHelper.companies.Find(x => x.Equals(_id));
 
-            companys = GetCompanys(id);
+            if (company.phones.Count == 0 || company.addresses.Count == 0 || company.emails.Count == 0)
+            {
+                company = GetCompanies(company.id)[0];
+                addOrReplaceCompany(company);
+            }
 
-            return companys[0]?? new Company();
+            return company;
+        }
+
+        private static void addOrReplaceCompany(Company company)
+        {
+            int index = companies.FindIndex(x => x.Equals(company.id));
+            if (index > 0)
+                companies[index] = company;
+            else
+                companies.Add(company);
         }
 
         public static void setCompanyGrid(DataGrid datagrid)
         {
-            List<Company> companies = GetCompanys();
+            List<Company> companies = GetCompanies();
             datagrid.ItemsSource = companies;
 
             datagrid.SelectionMode = DataGridSelectionMode.Extended;
@@ -156,7 +193,7 @@ namespace FerreteriaNorte.Classes.Companies
         public static List<Company> LoadCompanyGrid(DataGrid datagrid, List<Company> companies = null)
         {
             if (companies == null)
-                companies = GetCompanys();
+                companies = GetCompanies();
 
             DataTable dt = new DataTable();
 
@@ -182,55 +219,56 @@ namespace FerreteriaNorte.Classes.Companies
             return companies;
         }
 
-        public static Tuple<HttpStatusCode, string> sendToDB(Company company, List<Address> addresses, List<Phone> phones, List<StringValue> emails)
+        public static Tuple<HttpStatusCode, string> sendToDB(Company company)
         {
-            JObject jCompany = new JObject();
-            
-            jCompany.Add(DBKeys.Company.NAME, company.name);
-            jCompany.Add(DBKeys.Company.CUIT, company.cuit);
-            jCompany.Add(DBKeys.Company.WEB, company.web);
+            JObject jCompany = company.toJSON();
+            //JObject jCompany = new JObject();
 
-            // ADDRESSES SECTION
-            JArray jAddresses = new JArray();
+            //jCompany.Add(DBKeys.Company.NAME, company.name);
+            //jCompany.Add(DBKeys.Company.CUIT, company.cuit);
+            //jCompany.Add(DBKeys.Company.WEB, company.web);
 
-            foreach (Address item in addresses)
-            {
-                JObject jAddress = new JObject();
-                jAddress.Add(DBKeys.Address.STREET, item.street);
-                jAddress.Add(DBKeys.Address.NUMBER, item.number);
-                jAddress.Add(DBKeys.Address.ZIPCODE, item.zipCode);
-                jAddress.Add(DBKeys.Address.CITY, item.city);
-                jAddress.Add(DBKeys.Address.COORDINATES, item.coordinates);
-                jAddresses.Add(jAddress);
-            }
+            //// ADDRESSES SECTION
+            //JArray jAddresses = new JArray();
 
-            jCompany.Add("addresses", jAddresses);
+            //foreach (Address item in company.addresses)
+            //{
+            //    JObject jAddress = new JObject();
+            //    jAddress.Add(DBKeys.Address.STREET, item.street);
+            //    jAddress.Add(DBKeys.Address.NUMBER, item.number);
+            //    jAddress.Add(DBKeys.Address.ZIPCODE, item.zipCode);
+            //    jAddress.Add(DBKeys.Address.CITY, item.city);
+            //    jAddress.Add(DBKeys.Address.COORDINATES, item.coordinates);
+            //    jAddresses.Add(jAddress);
+            //}
 
-            // PHONES SECTION
-            JArray jPhones = new JArray();
+            //jCompany.Add("addresses", jAddresses);
 
-            foreach (Phone phone in phones)
-            {
-                JObject jPhone = new JObject();
+            //// PHONES SECTION
+            //JArray jPhones = new JArray();
 
-                jPhone.Add(DBKeys.Phone.AREA, phone.area);
-                jPhone.Add(DBKeys.Phone.NUMBER, phone.number);
-                jPhone.Add(DBKeys.Phone.TYPE, phone.type);
+            //foreach (Phone phone in company.phones)
+            //{
+            //    JObject jPhone = new JObject();
 
-                jPhones.Add(jPhone);
-            }
+            //    jPhone.Add(DBKeys.Phone.AREA, phone.area);
+            //    jPhone.Add(DBKeys.Phone.NUMBER, phone.number);
+            //    jPhone.Add(DBKeys.Phone.TYPE, phone.type);
 
-            jCompany.Add("phones", jPhones);
+            //    jPhones.Add(jPhone);
+            //}
 
-            //  EMAILS SECTION
-            JArray jEmails = new JArray();
+            //jCompany.Add("phones", jPhones);
 
-            foreach (StringValue email in emails)
-            {
-                jEmails.Add(email.Value);
-            }
+            ////  EMAILS SECTION
+            //JArray jEmails = new JArray();
 
-            jCompany.Add("emails", jEmails);
+            //foreach (string email in company.emails)
+            //{
+            //    jEmails.Add(email);
+            //}
+
+            //jCompany.Add("emails", jEmails);
 
             Tuple<HttpStatusCode, string> response = Functions.sendPost(Properties.Resources.base_url + "company/add", jCompany.ToString());
 

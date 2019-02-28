@@ -11,12 +11,12 @@
         <Button x:Name="btnNewBrand" Content="Nueva Marca" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnNewCompany" Content="Nueva Empresa" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnNewItem" Content="Nuevo Art." HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="btnSettings" Content="Configuración" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnSettings" Content="Configuración" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Visibility="Hidden"/>
         <Button x:Name="btnItemList" Content="Artículos" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnNewSale" Content="Nueva Venta" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnBrandList" Content="Marcas" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnCompanyList" Content="Empresas" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="btnSaleList" Content="Ventas" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnSaleList" Content="Ventas" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Visibility="Hidden"/>
         <Button x:Name="btnNewShop" Content="Nuevo Local" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnShopList" Content="Locales" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>

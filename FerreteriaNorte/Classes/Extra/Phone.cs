@@ -21,7 +21,7 @@ namespace FerreteriaNorte.Classes.Extra
         private void setValues()
         {
             this.Text = this.ToString();
-            this.Value = this.id;
+            this.Value = this.id==0? "" : this.id.ToString();
         }
         public Phone()
         {
@@ -52,7 +52,7 @@ namespace FerreteriaNorte.Classes.Extra
 
         public override string ToString()
         {
-            return this.area + "-" + this.number + " (" + phone_type + ")";
+            return "(" + PhoneHelper.GetPhoneType(type).name + ") " + this.area + "-" + this.number;
         }
 
         public int CompareTo(object obj)
@@ -61,7 +61,7 @@ namespace FerreteriaNorte.Classes.Extra
         }
     }
 
-    class PhoneType : IComparable, IEquatable<PhoneType>
+    class PhoneType : IComparable, IEquatable<int>
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -92,9 +92,9 @@ namespace FerreteriaNorte.Classes.Extra
             return this.name.CompareTo(((PhoneType)obj).name);
         }
 
-        public bool Equals(PhoneType other)
+        public bool Equals(int other)
         {
-            return this.id == other.id;
+            return id == other;
         }
     }
 }

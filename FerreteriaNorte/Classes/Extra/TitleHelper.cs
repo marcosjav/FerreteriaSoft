@@ -2,20 +2,25 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace FerreteriaNorte.Classes.Extra
 {
     class TitleHelper
     {
+        private static List<Title> titles;
+        private static List<Subtitle> subtitles;
+
         /// <summary>
         /// Parse a Title JSONObject to a Title class object
         /// </summary>
         /// <param name="str"></param>
         /// <returns>Returns NULL if JSONObject don't contains id and name of title</returns>
-        public static Item parseTitle(string str)
+        public static Title parseTitle(string str)
         {
             JObject jsonTitle = JObject.Parse(str);
             string json_id = jsonTitle[DBKeys.Title.ID].ToString();
@@ -25,7 +30,7 @@ namespace FerreteriaNorte.Classes.Extra
 
             if (int.TryParse(json_id, out id) && name != null)
             {
-                return new Item(id, name);
+                return new Title(id, name);
             }
 
             return null;
@@ -58,9 +63,9 @@ namespace FerreteriaNorte.Classes.Extra
         /// Call to DB API REST to get the Title list
         /// </summary>
         /// <returns>A list of Title objects</returns>
-        public static List<Item> GetTitles()
+        public static List<Title> GetTitles()
         {
-            List<Item> titles = new List<Item>();
+            List<Title> titles = new List<Title>();
 
             string request = Properties.Resources.base_url + "title/titles"; //Properties.Settings.Default.base_url + "/brand/list";
 
@@ -71,7 +76,7 @@ namespace FerreteriaNorte.Classes.Extra
             foreach (JObject item in jsonArray)
             {
                 string str = item.ToString();
-                Item newTitle = parseTitle(str);
+                Title newTitle = parseTitle(str);
                 if (newTitle != null)
                 {
                     titles.Add(newTitle);
@@ -111,6 +116,56 @@ namespace FerreteriaNorte.Classes.Extra
             subtitles.Sort();
 
             return subtitles;
+        }
+
+        public static Title GetTitle(int _id)
+        {
+            if (TitleHelper.titles == null)
+            {
+                TitleHelper.titles = GetTitles();
+            }
+            Title title = TitleHelper.titles.Find(x => x.Equals(_id));
+
+            return title;
+        }
+
+        public static Subtitle GetSubtitle(int _id, int _title_id)
+        {
+            if (TitleHelper.titles == null)
+            {
+                TitleHelper.titles = GetTitles();
+            }
+            if (TitleHelper.subtitles == null)
+            {
+                TitleHelper.subtitles = GetSubtitles(_title_id);
+            }
+            Subtitle subtitle = TitleHelper.subtitles.Find(x => x.Equals(_id));
+
+            return subtitle;
+        }
+
+        public static void setSubtitleGrid(DataGrid datagrid, List<Subtitle> list)
+        {
+            datagrid.ItemsSource = null;
+            datagrid.ItemsSource = list;
+
+            datagrid.SelectionMode = DataGridSelectionMode.Extended;
+            datagrid.IsReadOnly = true;
+
+            foreach (DataGridColumn item in datagrid.Columns)
+            {
+                switch ((string)item.Header)
+                {
+                    case "Text":
+                        item.Header = "Categoría";
+                        item.DisplayIndex = 0;
+                        break;
+                    default:
+                        item.Visibility = System.Windows.Visibility.Hidden;
+                        break;
+                }
+            }
+
         }
     }
 }
