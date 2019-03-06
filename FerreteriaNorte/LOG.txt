@@ -1,4 +1,19 @@
 ﻿************ 
+* 03/03/19 *
+************
+HECHO:
+	- Clase Stock en Items
+
+SIGUE:
+	- Agregar stocks en NewItem
+	- Agregar proveedores con su código propio
+	- Agregar descuentos de cada proveedor
+
+LISTO:
+	- Agregar categorías en NewItem
+	- Agregar Marcas en NewItem
+
+************ 
 * 27/02/19 *
 ************
 LISTO:
