@@ -8,6 +8,7 @@ SIGUE:
 	- Agregar stocks en NewItem
 	- Agregar proveedores con su código propio
 	- Agregar descuentos de cada proveedor
+	- Agregar panel para gestión de países, provincias y ciudades
 
 LISTO:
 	- Agregar categorías en NewItem
