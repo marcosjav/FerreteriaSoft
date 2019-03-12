@@ -77,16 +77,20 @@
                 <DataGrid x:Name="dataGridCategories" HorizontalAlignment="Left" Height="97" Margin="10,176,0,0" VerticalAlignment="Top" Width="258" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged"/>
                 <DataGrid x:Name="dataGridBrands" HorizontalAlignment="Left" Height="93" Margin="6,325,0,0" VerticalAlignment="Top" Width="262" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged"/>
                 <Button x:Name="buttonAddSubTitle" Content="+" HorizontalAlignment="Right" Margin="0,0,270,468" VerticalAlignment="Bottom" Width="24" Click="buttonAddSubTitle_Click" Height="23"/>
-                <Button x:Name="buttonAddStock" Content="+" HorizontalAlignment="Right" Margin="0,0,5,296" VerticalAlignment="Bottom" Width="24" Height="22"/>
+                <Button x:Name="buttonAddStock" Content="+" HorizontalAlignment="Right" Margin="0,0,5,296" VerticalAlignment="Bottom" Width="24" Height="22" Click="buttonAddStock_Click"/>
 
 
             </Grid>
         </GroupBox>
         <Label x:Name="label2_Copy4" Content="LOCAL" HorizontalAlignment="Left" Margin="292,312,0,0" VerticalAlignment="Top" Height="26" Width="77"/>
         <ComboBox x:Name="comboShop" HorizontalAlignment="Left" Margin="335,314,0,0" VerticalAlignment="Top" Width="205" SelectionChanged="comboCompany_SelectionChanged" Height="22"/>
-        <DataGrid x:Name="dataGridStock" HorizontalAlignment="Left" Height="72" Margin="292,362,0,0" VerticalAlignment="Top" Width="248" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged"/>
-        <TextBox x:Name="textStock" HorizontalAlignment="Left" Height="22" Margin="366,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" IsEnabled="False"/>
-        <Label x:Name="label2_Copy5" Content="CANTIDAD" HorizontalAlignment="Left" Margin="292,336,0,0" VerticalAlignment="Top" Cursor="Cross" Height="26" Width="69"/>
+        <DataGrid x:Name="dataGridStock" HorizontalAlignment="Left" Height="46" Margin="292,388,0,0" VerticalAlignment="Top" Width="248" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged"/>
+        <TextBox x:Name="textStock" HorizontalAlignment="Left" Height="22" Margin="340,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" IsEnabled="False"/>
+        <Label x:Name="label2_Copy5" Content="STOCK" HorizontalAlignment="Left" Margin="292,336,0,0" VerticalAlignment="Top" Cursor="Cross" Height="26" Width="48"/>
+        <Label x:Name="label2_Copy6" Content="MIN" HorizontalAlignment="Left" Margin="415,338,0,0" VerticalAlignment="Top" Cursor="Cross" Height="26" Width="34" RenderTransformOrigin="1.088,0.519"/>
+        <TextBox x:Name="textStockMin" HorizontalAlignment="Left" Height="22" Margin="454,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" IsEnabled="False"/>
+        <Label x:Name="label2_Copy7" Content="UN." HorizontalAlignment="Left" Margin="292,362,0,0" VerticalAlignment="Top" Height="26" Width="77"/>
+        <ComboBox x:Name="comboUnits" HorizontalAlignment="Left" Margin="335,364,0,0" VerticalAlignment="Top" Width="205" SelectionChanged="comboCompany_SelectionChanged" Height="22"/>
 
     </Grid>
 </Page>

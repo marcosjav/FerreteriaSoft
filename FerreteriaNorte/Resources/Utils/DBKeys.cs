@@ -127,5 +127,20 @@ namespace FerreteriaNorte.Resources.Utils
             public const string ADDRESS = "address_email";
             public const string IDCOMPANY = "company_id";
         }
+
+        public static class Unit
+        {
+            public const string ID = "id_unit";
+            public const string NAME = "name_unit";
+        }
+
+        public static class Stock
+        {
+            public const string ITEM_ID = "item_id";
+            public const string QUANTITY_STOCK = "quantity_stock";
+            public const string MIN_STOCK = "min_stock";
+            public const string UNIT_ID = "unit_id";
+            public const string SHOP_ID = "shop_id_shop";
+        }
     }
 }

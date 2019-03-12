@@ -110,10 +110,14 @@
     <Compile Include="Classes\Extra\StringValue.cs" />
     <Compile Include="Classes\Extra\Title.cs" />
     <Compile Include="Classes\Extra\TitleHelper.cs" />
+    <Compile Include="Classes\Items\Extra\StockHelper.cs" />
     <Compile Include="Classes\Items\Item.cs" />
     <Compile Include="Classes\Extra\Picture.cs" />
     <Compile Include="Classes\Items\ItemHelper.cs" />
     <Compile Include="Classes\Items\NewItemForm.cs" />
+    <Compile Include="Classes\Items\Extra\Stock.cs" />
+    <Compile Include="Classes\Items\Extra\Unit.cs" />
+    <Compile Include="Classes\Items\Extra\UnitHelper.cs" />
     <Compile Include="Classes\Locations\Address.cs" />
     <Compile Include="Classes\Locations\AddressHelper.cs" />
     <Compile Include="Classes\Provider.cs" />

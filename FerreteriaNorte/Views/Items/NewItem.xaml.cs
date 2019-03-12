@@ -2,6 +2,7 @@
 using FerreteriaNorte.Classes.Companies;
 using FerreteriaNorte.Classes.Extra;
 using FerreteriaNorte.Classes.Shops;
+using FerreteriaNorte.Classes.Items.Extra;
 using FerreteriaNorte.Views.Brands;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,8 @@ namespace FerreteriaNorte.Views.Items
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             comboBrand.ItemsSource = BrandHelper.GetBrands();
+
+            comboUnits.ItemsSource = UnitHelper.GetUnits();
 
             comboTitle.ItemsSource = TitleHelper.GetTitles();
 
@@ -141,6 +144,15 @@ namespace FerreteriaNorte.Views.Items
                 subtitles.Add(subtitle);
 
             TitleHelper.setSubtitleGrid(dataGridCategories, subtitles);
+        }
+
+        private void buttonAddStock_Click(object sender, RoutedEventArgs e)
+        {
+            Stock stock = new Stock();
+            stock.quantity_stock = int.Parse(textStock.Text);
+            stock.shop_id_shop = ((Shop)comboShop.SelectedItem).id;
+            stock.min_stock = int.Parse(textStockMin.Text);
+            stock.unit_id = ((Unit)comboUnits.SelectedItem).id_unit;
         }
     }
 }

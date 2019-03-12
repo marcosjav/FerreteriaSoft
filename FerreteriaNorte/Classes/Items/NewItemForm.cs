@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FerreteriaNorte.Classes.Items.Extra;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,14 +19,6 @@ namespace FerreteriaNorte.Classes.Items
         public string code { get; set; }
         public double cost_item { get; set; }
         public List<Discount> discounts { get; set; }
-    }
-
-    public class Stock
-    {
-        public int quantity_stock { get; set; }
-        public int min_stock { get; set; }
-        public int unit_id { get; set; }
-        public int shop_id_shop { get; set; }
     }
 
     public class RootObject
