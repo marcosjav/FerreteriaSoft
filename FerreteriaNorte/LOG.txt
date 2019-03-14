@@ -2,20 +2,20 @@
 * 12/03/19 *
 ************
 HECHO:
+	- Agregar en servidor gestión de Stock (controller y model)
+
+
+SIGUE:
+	- Agregar proveedores con su código propio de NewItem
+	- Agregar descuentos de cada proveedor de NewItem
+	- Agregar panel para gestión de países, provincias y ciudades
+
+LISTO:
 	- Stocks en NewItem
 	- Stock Mín y Unidad en Stocks de NewItem
 	- Clase Items\Unit.cs e Items\UnitHelper.cs
 	- Clase Items\Extra\Stock.cs e Items\Extra\StockHelper.cs (falta revisar)
 	- Se actualizó DBKeys
-
-
-SIGUE:
-	- Agregar en servidor gestión de Stock (controller y model)
-	- Agregar proveedores con su código propio
-	- Agregar descuentos de cada proveedor
-	- Agregar panel para gestión de países, provincias y ciudades
-
-LISTO:
 	- Agregar categorías en NewItem
 	- Agregar Marcas en NewItem
 	- Clase Stock en Items
