@@ -512,9 +512,9 @@ namespace FerreteriaNorte.Classes.Locations
             parms.Add(DBKeys.City.NAME, city.name);
             parms.Add(DBKeys.City.PROVINCE, city.province.ToString());
 
-            string request = Functions.createRequest("location/add", parms);
+            string response = Functions.createRequest("location/add", parms);
 
-            string response = Functions.readRequest(request);
+            //string response = Functions.readRequest(request);
 
             if (response != null)
             {
@@ -534,9 +534,9 @@ namespace FerreteriaNorte.Classes.Locations
             parms.Add(DBKeys.Address.COORDINATES, address.coordinates);
             parms.Add(DBKeys.Address.CITY, address.city.ToString());
 
-            string request = Functions.createRequest("location/add", parms);
+            string response = Functions.createRequest("location/add", parms);
 
-            string response = Functions.readRequest(request);
+            //string response = Functions.readRequest(request);
 
             if (response != null)
             {

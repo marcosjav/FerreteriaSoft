@@ -17,9 +17,9 @@
         <DataGrid x:Name="dataGridCity" HorizontalAlignment="Left" Height="131" Margin="0,365,0,0" VerticalAlignment="Top" Width="298"/>
         <TextBox x:Name="tbCity" HorizontalAlignment="Left" Height="23" Margin="63,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
         <Label x:Name="label_Copy1" Content="Ciudad" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="58" Margin="0,334,0,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnAddCountry" Content="Agregar" HorizontalAlignment="Left" Margin="223,0,0,0" VerticalAlignment="Top" Width="75" Click="btnAddCountry_Click"/>
-        <Button x:Name="btnAddProvince" Content="Agregar" HorizontalAlignment="Left" Margin="223,167,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnAddCity" Content="Agregar" HorizontalAlignment="Left" Margin="223,333,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnAddCountry" Content="Agregar" HorizontalAlignment="Left" Margin="223,0,0,0" VerticalAlignment="Top" Width="75" Click="btn_Click"/>
+        <Button x:Name="btnAddProvince" Content="Agregar" HorizontalAlignment="Left" Margin="223,167,0,0" VerticalAlignment="Top" Width="75" Click="btn_Click"/>
+        <Button x:Name="btnAddCity" Content="Agregar" HorizontalAlignment="Left" Margin="223,333,0,0" VerticalAlignment="Top" Width="75" Click="btn_Click"/>
 
     </Grid>
 </Page>

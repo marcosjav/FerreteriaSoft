@@ -141,6 +141,13 @@ namespace FerreteriaNorte.Classes.Locations
 
         }
 
+        public Province(string name, int country)
+        {
+            this.name = name;
+            this.country = country;
+            setValues();
+        }
+
         public Province(int id, string name, int country)
         {
             this.id = id;
