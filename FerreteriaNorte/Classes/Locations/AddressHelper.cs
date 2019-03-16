@@ -144,7 +144,7 @@ namespace FerreteriaNorte.Classes.Locations
         /// Call to DB API REST to get the Province list
         /// </summary>
         /// <returns>A list of Province objects</returns>
-        public static List<Province> GetProvinces(int id = 0)
+        public static List<Province> GetProvinces(int country_id = 0)
         {
             List<Province> provinces = new List<Province>();
 
@@ -153,8 +153,8 @@ namespace FerreteriaNorte.Classes.Locations
             //string response = Functions.readRequest(request);
 
             Dictionary<string, string> parms = new Dictionary<string, string>();
-            if (id > 0)
-                parms.Add(DBKeys.Province.ID, id.ToString());
+            if (country_id > 0)
+                parms.Add(DBKeys.Country.ID, country_id.ToString());
 
             string response = Functions.createRequest("location/province", parms);
 
@@ -179,7 +179,7 @@ namespace FerreteriaNorte.Classes.Locations
         /// Call to DB API REST to get the City list
         /// </summary>
         /// <returns>A list of City objects</returns>
-        public static List<City> GetCities(int id = 0)
+        public static List<City> GetCities(int province_id = 0, int country_id = 0)
         {
             List<City> cities = new List<City>();
 
@@ -188,10 +188,18 @@ namespace FerreteriaNorte.Classes.Locations
             //string response = Functions.readRequest(request);
 
             Dictionary<string, string> parms = new Dictionary<string, string>();
-            if (id > 0)
-                parms.Add(DBKeys.Province.ID, id.ToString());
 
-            string response = Functions.createRequest("location/city", parms);
+            if (province_id > 0)
+                parms.Add(DBKeys.Province.ID, province_id.ToString());
+
+            if (country_id > 0)
+                parms.Add(DBKeys.Country.ID, country_id.ToString());
+
+            string response;
+            if (country_id > 0)
+                response = Functions.createRequest("location/list", parms);
+            else
+                response = Functions.createRequest("location/city", parms);
 
             JArray jsonArray = JArray.Parse(response);
 
@@ -271,9 +279,9 @@ namespace FerreteriaNorte.Classes.Locations
 
         }
 
-        public static void setProvinceGrid(DataGrid datagrid)
+        public static void setProvinceGrid(DataGrid datagrid, int country_id = 0)
         {
-            List<Province> items = GetProvinces();
+            List<Province> items = GetProvinces(country_id);
 
             datagrid.ItemsSource = items;
 
@@ -300,9 +308,9 @@ namespace FerreteriaNorte.Classes.Locations
 
         }
 
-        public static void setCityGrid(DataGrid datagrid)
+        public static void setCityGrid(DataGrid datagrid, int province_id = 0, int country_id = 0)
         {
-            List<City> items = GetCities();
+            List<City> items = GetCities(province_id, country_id);
 
             datagrid.ItemsSource = items;
 
@@ -466,7 +474,7 @@ namespace FerreteriaNorte.Classes.Locations
 
         public static int sendCountryToDB(Country country)
         {
-            string request = Properties.Resources.base_url + "locations/add";
+            string request = Properties.Resources.base_url + "location/add";
 
             request += "?" + DBKeys.Country.NAME + "=" + country.name;
 
@@ -482,7 +490,7 @@ namespace FerreteriaNorte.Classes.Locations
 
         public static int sendProvinceToDB(Province province)
         {
-            string request = Properties.Resources.base_url + "locations/add";
+            string request = Properties.Resources.base_url + "location/add";
 
             request += "?" + DBKeys.Province.NAME + "=" + province.name;
             request += "&" + DBKeys.Province.COUNTRY + "=" + province.country;
@@ -504,7 +512,7 @@ namespace FerreteriaNorte.Classes.Locations
             parms.Add(DBKeys.City.NAME, city.name);
             parms.Add(DBKeys.City.PROVINCE, city.province.ToString());
 
-            string request = Functions.createRequest("locations/add", parms);
+            string request = Functions.createRequest("location/add", parms);
 
             string response = Functions.readRequest(request);
 
@@ -526,7 +534,7 @@ namespace FerreteriaNorte.Classes.Locations
             parms.Add(DBKeys.Address.COORDINATES, address.coordinates);
             parms.Add(DBKeys.Address.CITY, address.city.ToString());
 
-            string request = Functions.createRequest("locations/add", parms);
+            string request = Functions.createRequest("location/add", parms);
 
             string response = Functions.readRequest(request);
 
