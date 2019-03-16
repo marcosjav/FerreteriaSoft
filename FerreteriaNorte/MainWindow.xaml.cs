@@ -6,6 +6,7 @@ using FerreteriaNorte.Views.Brands;
 using FerreteriaNorte.Views.Companies;
 using FerreteriaNorte.Views.General;
 using FerreteriaNorte.Views.Items;
+using FerreteriaNorte.Views.Locations;
 using FerreteriaNorte.Views.Shops;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,8 @@ namespace FerreteriaNorte
             CompanyList,
             Settings,
             Shops,
-            NewShop
+            NewShop,
+            Locations
         }
 
         public MainWindow()
@@ -65,6 +67,7 @@ namespace FerreteriaNorte
             pages.Add(PageType.Settings, new UserSettings());
             pages.Add(PageType.Shops, new ShopList());
             pages.Add(PageType.NewShop, new NewShop());
+            pages.Add(PageType.Locations, new Locations());
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -105,6 +108,9 @@ namespace FerreteriaNorte
                     break;
                 case "btnCompanyList":
                     mainFrame.Navigate(pages[PageType.CompanyList]);
+                    break;
+                case "btnNewLocations":
+                    mainFrame.Navigate(pages[PageType.Locations]);
                     break;
                 default:
                     break;
