@@ -169,6 +169,9 @@
     <Compile Include="Views\Shops\ShopList.xaml.cs">
       <DependentUpon>ShopList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Titles\Titles.xaml.cs">
+      <DependentUpon>Titles.xaml</DependentUpon>
+    </Compile>
     <Page Include="About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,6 +244,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Shops\ShopList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Titles\Titles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

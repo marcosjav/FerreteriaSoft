@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FerreteriaNorte.Classes.Extra
 {
-    class Title :IComparable
+    class Title : IComparable
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -19,6 +19,12 @@ namespace FerreteriaNorte.Classes.Extra
         {
         }
 
+        public Title(string name)
+        {
+            this.name = name;
+            this.Text = name;
+        }
+
         public Title(int id, string name)
         {
             this.id = id;
@@ -27,12 +33,12 @@ namespace FerreteriaNorte.Classes.Extra
             this.Value = id;
         }
 
-        public override bool Equals(object obj)
-        {
-            var title = obj as Title;
-            return title != null &&
-                   id == title.id;
-        }
+        //public override bool Equals(object obj)
+        //{
+        //    var title = obj as Title;
+        //    return title != null &&
+        //           id == title.id;
+        //}
 
         // This functions are used to combobox
         public override string ToString()
@@ -58,6 +64,13 @@ namespace FerreteriaNorte.Classes.Extra
 
         public Subtitle()
         {
+        }
+
+        public Subtitle(int title_id, string name)
+        {
+            this.title_id = title_id;
+            this.name = name;
+            this.Text = name;
         }
 
         public Subtitle(int id, int title_id, string name)

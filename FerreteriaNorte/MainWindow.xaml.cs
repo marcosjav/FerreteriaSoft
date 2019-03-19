@@ -8,6 +8,7 @@ using FerreteriaNorte.Views.General;
 using FerreteriaNorte.Views.Items;
 using FerreteriaNorte.Views.Locations;
 using FerreteriaNorte.Views.Shops;
+using FerreteriaNorte.Views.Titles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,8 @@ namespace FerreteriaNorte
             Settings,
             Shops,
             NewShop,
-            Locations
+            Locations,
+            Titles
         }
 
         public MainWindow()
@@ -68,6 +70,7 @@ namespace FerreteriaNorte
             pages.Add(PageType.Shops, new ShopList());
             pages.Add(PageType.NewShop, new NewShop());
             pages.Add(PageType.Locations, new Locations());
+            pages.Add(PageType.Titles, new Titles());
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -111,6 +114,9 @@ namespace FerreteriaNorte
                     break;
                 case "btnNewLocations":
                     mainFrame.Navigate(pages[PageType.Locations]);
+                    break;
+                case "btnTitles":
+                    mainFrame.Navigate(pages[PageType.Titles]);
                     break;
                 default:
                     break;

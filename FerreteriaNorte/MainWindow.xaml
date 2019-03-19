@@ -20,5 +20,6 @@
         <Button x:Name="btnNewShop" Content="Nuevo Local" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnShopList" Content="Locales" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnNewLocations" Content="Ubicaciones" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btnTitles" Content="Categorías" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
 </Window>

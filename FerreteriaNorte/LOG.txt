@@ -3,17 +3,17 @@
 * 16/03/19 *
 ************
 HECHO:
-	- Agregar panel para gestión de países, provincias y ciudades
-		- Se agrega botón de acceso a configuración de Ubicaciones en menú principal
-		- Agregar País, Provincia y Ciudad en Views/Locations/Locations.xaml
-		- Carga de grilla en Views/Locations/Locations.xaml
+	- Panel de Gestión de Categorías
 
 SIGUE:
-	- Panel de Gestión de Categorías
 	- Agregar proveedores con su código propio de NewItem
 	- Agregar descuentos de cada proveedor de NewItem
 
 LISTO:
+	- Agregar panel para gestión de países, provincias y ciudades
+		- Se agrega botón de acceso a configuración de Ubicaciones en menú principal
+		- Agregar País, Provincia y Ciudad en Views/Locations/Locations.xaml
+		- Carga de grilla en Views/Locations/Locations.xaml
 	- Agregar en servidor gestión de Stock (controller y model)
 	- Stocks en NewItem
 	- Stock Mín y Unidad en Stocks de NewItem
