@@ -73,6 +73,7 @@ namespace FerreteriaNorte.Views.Titles
                 if (titleId > 0)
                 {
                     MessageBox.Show("Se guardó con el código: " + titleId.ToString());
+                    tbTitle.Text = "";
                 }
                 else
                 {
@@ -99,6 +100,7 @@ namespace FerreteriaNorte.Views.Titles
                 if (subtitleId > 0)
                 {
                     MessageBox.Show("Se guardó con el código: " + subtitleId.ToString());
+                    tbSubtitle.Text = "";
                 }
                 else
                 {
