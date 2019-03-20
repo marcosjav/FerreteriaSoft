@@ -3,13 +3,15 @@
 * 16/03/19 *
 ************
 HECHO:
-	- Panel de Gestión de Categorías
+	- Clase nueva CompanyHasItem
 
 SIGUE:
+	- En NewItem, para agregar un ítem de cierta compañía hace falta poner el precio o ver como hacer para agregar sin precio y que después se le de. Habría que separar código de precio
 	- Agregar proveedores con su código propio de NewItem
 	- Agregar descuentos de cada proveedor de NewItem
 
 LISTO:
+	- Panel de Gestión de Categorías
 	- Agregar panel para gestión de países, provincias y ciudades
 		- Se agrega botón de acceso a configuración de Ubicaciones en menú principal
 		- Agregar País, Provincia y Ciudad en Views/Locations/Locations.xaml

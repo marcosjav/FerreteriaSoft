@@ -102,6 +102,7 @@
     <Compile Include="Classes\Clients\Client.cs" />
     <Compile Include="Classes\Clients\ClientException.cs" />
     <Compile Include="Classes\Companies\Company.cs" />
+    <Compile Include="Classes\Companies\CompanyHasItem.cs" />
     <Compile Include="Classes\Companies\CompanyHelper.cs" />
     <Compile Include="Classes\Extra\Phone.cs" />
     <Compile Include="Classes\Extra\PhoneHelper.cs" />

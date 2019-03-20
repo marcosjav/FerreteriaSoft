@@ -154,5 +154,15 @@ namespace FerreteriaNorte.Views.Items
             stock.min_stock = int.Parse(textStockMin.Text);
             stock.unit_id = ((Unit)comboUnits.SelectedItem).id_unit;
         }
+
+        private void buttonAddCompany_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (comboCompany.SelectedItem != null)
+            {
+                int company_id = ((Company)comboCompany.SelectedItem).id;
+                CompanyHasItem companyHasItem = new CompanyHasItem(company_id, textCode.Text, );
+            }
+            
+        }
     }
 }
