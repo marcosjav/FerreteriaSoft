@@ -1,5 +1,34 @@
 ﻿
 ************ 
+* 21/03/19 *
+************
+HECHO:
+
+SIGUE:
+	- Stock no tiene en cuenta el proveedor, para saber cuándo de cada uno hay
+	- En NewItem, para agregar un ítem de cierta compañía hace falta poner el precio o ver como hacer para agregar sin precio y que después se le de. Habría que separar código de precio
+	- Agregar proveedores con su código propio de NewItem
+	- Agregar descuentos de cada proveedor de NewItem
+
+LISTO:
+	- Clase nueva CompanyHasItem
+	- Panel de Gestión de Categorías
+	- Agregar panel para gestión de países, provincias y ciudades
+		- Se agrega botón de acceso a configuración de Ubicaciones en menú principal
+		- Agregar País, Provincia y Ciudad en Views/Locations/Locations.xaml
+		- Carga de grilla en Views/Locations/Locations.xaml
+	- Agregar en servidor gestión de Stock (controller y model)
+	- Stocks en NewItem
+	- Stock Mín y Unidad en Stocks de NewItem
+	- Clase Items\Unit.cs e Items\UnitHelper.cs
+	- Clase Items\Extra\Stock.cs e Items\Extra\StockHelper.cs (falta revisar)
+	- Se actualizó DBKeys
+	- Agregar categorías en NewItem
+	- Agregar Marcas en NewItem
+	- Clase Stock en Items
+
+	
+************ 
 * 20/03/19 *
 ************
 HECHO:

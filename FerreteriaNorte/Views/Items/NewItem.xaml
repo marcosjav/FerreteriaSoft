@@ -55,15 +55,16 @@
                         </Grid.ColumnDefinitions>
                         <Label x:Name="label2_Copy" Content="PROVEEDOR" HorizontalAlignment="Left" Margin="2,6,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="77" Grid.ColumnSpan="3"/>
                         <ComboBox x:Name="comboCompany" HorizontalAlignment="Left" Margin="37,6,0,0" VerticalAlignment="Top" Width="188" SelectionChanged="comboCompany_SelectionChanged" Grid.Column="3" Height="22"/>
-                        <DataGrid x:Name="dataGridCompanies" HorizontalAlignment="Left" Height="104" Margin="5,56,0,0" VerticalAlignment="Top" Width="258" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="3"/>
-                        <TextBox x:Name="textCode" HorizontalAlignment="Left" Height="22" Margin="37,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" IsEnabled="False" Grid.Column="3"/>
+                        <DataGrid x:Name="dataGridCompanies" HorizontalAlignment="Left" Height="103" Margin="5,57,0,0" VerticalAlignment="Top" Width="258" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        <TextBox x:Name="textCode" HorizontalAlignment="Left" Height="22" Margin="19,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" IsEnabled="False" Grid.Column="3"/>
                         <Label x:Name="label2_Copy1" Content="CÓDIGO" HorizontalAlignment="Left" Margin="2,30,0,0" VerticalAlignment="Top" Cursor="Cross" Grid.Column="1" Height="26" Width="55" Grid.ColumnSpan="3"/>
-                        <Button x:Name="buttonAddCompany" Content="+" HorizontalAlignment="Right" Margin="0,0,263,112" VerticalAlignment="Bottom" Width="24" Grid.Column="3" Height="20" FontWeight="Bold" Click="buttonAddCompany_Click_1"/>
                         <DataGrid x:Name="dataGridDiscounts" HorizontalAlignment="Left" Height="104" Margin="230,56,0,0" VerticalAlignment="Top" Width="258" IsSynchronizedWithCurrentItem="False" SelectionMode="Single" SelectionChanged="dataGridCompanies_SelectionChanged" Grid.Column="3"/>
                         <TextBox x:Name="textDiscount" HorizontalAlignment="Left" Height="22" Margin="322,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" IsEnabled="False" Grid.Column="3"/>
                         <Label x:Name="label2_Copy2" Content="DESCUENTO" HorizontalAlignment="Left" Margin="244,2,0,0" VerticalAlignment="Top" Cursor="Cross" Grid.Column="3" Height="26" Width="86"/>
                         <Button x:Name="buttonDiscount" Content="AGREGAR" HorizontalAlignment="Right" Margin="0,0,76,112" VerticalAlignment="Bottom" Width="74" Click="buttonAddCompany_Click" Grid.Column="3" Height="20"/>
                         <Label x:Name="label2_Copy3" Content="%" HorizontalAlignment="Left" Margin="440,2,0,0" VerticalAlignment="Top" Cursor="Cross" Grid.Column="3" Height="26" Width="21"/>
+                        <TextBox x:Name="textPrice" HorizontalAlignment="Left" Height="22" Margin="150,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" IsEnabled="False" Grid.Column="3"/>
+                        <Label x:Name="label2_Copy8" Content="$" HorizontalAlignment="Left" Margin="130,30,0,0" VerticalAlignment="Top" Cursor="Cross" Grid.Column="3" Height="26" Width="20"/>
                     </Grid>
                 </GroupBox>
                 <Button x:Name="buttonAddBrand" Content="+" HorizontalAlignment="Right" Margin="0,0,270,320" VerticalAlignment="Bottom" Width="24" Click="buttonAddBrand_Click" Height="23"/>

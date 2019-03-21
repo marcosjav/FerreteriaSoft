@@ -157,10 +157,14 @@ namespace FerreteriaNorte.Views.Items
 
         private void buttonAddCompany_Click_1(object sender, RoutedEventArgs e)
         {
-            if (comboCompany.SelectedItem != null)
+            if (comboCompany.SelectedItem != null && textCode.Text.Length > 2)
             {
                 int company_id = ((Company)comboCompany.SelectedItem).id;
-                CompanyHasItem companyHasItem = new CompanyHasItem(company_id, textCode.Text, );
+                double price = 0;
+
+                double.TryParse(textPrice.Text, out price);
+
+                CompanyHasItem companyHasItem = new CompanyHasItem(company_id, textCode.Text, price);
             }
             
         }
